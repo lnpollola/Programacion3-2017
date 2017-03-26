@@ -31,14 +31,14 @@
     // array_push($arrayEjer6,rand(),rand(),rand(),rand(),rand());
 
     // var_dump($arrayEjer6);
-//4)
-    // $arrayEjer6 = array("Numero1"=>"1","Numero2"=>"2","Numero3"=>"3","Numero4"=>"4","Numero5"=>"5" );
+// 4)
+    $arrayEjer6 = array("Numero1"=>"1","Numero2"=>"2","Numero3"=>"3","Numero4"=>"4","Numero5"=>"5" );
 
-    // echo $arrayEjer6["Numero1"];
-    // echo $arrayEjer6["Numero2"];
-    // echo $arrayEjer6["Numero3"];
-    // echo $arrayEjer6["Numero4"];
-    // echo $arrayEjer6["Numero5"];
+    echo $arrayEjer6["Numero1"];
+    echo $arrayEjer6["Numero2"];
+    echo $arrayEjer6["Numero3"];
+    echo $arrayEjer6["Numero4"];
+    echo $arrayEjer6["Numero5"];
 
 
 ?>
