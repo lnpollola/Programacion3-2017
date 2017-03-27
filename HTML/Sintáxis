@@ -1,0 +1,45 @@
+<input type=“[TEXT|PASSWORD|CHECKBOX|RADIO|SUBMIT|
+		RESET|FILE|HIDDEN|IMAGE|BUTTON]” 
+	name=“nombre” id=“nombre” value=“valor” /> 
+
+input type=“text” name=“txtDni” size=“35” value=“0” id=“txtDni” 
+	maxlength=“8” /> 
+
+<input type=“password” name=“txtClave” size=“35” id=“txtClave” 
+	maxlength=“6” /> 
+
+<input type=“radio” name=“rdoTipo” value=“dni” checked /> 
+<input type=“radio” name=“rdoTipo” value=“Li” /> 
+<input type=“radio” name=“rdoTipo” value=“pass” /> 
+
+<input type=“hidden” name=“variable” id=“variable” value=“valor” /> 
+
+<input type=“checkbox” name=“chkOp1” value=“0” checked /> 
+<input type=“checkbox” name=“chkOp2” value=“1” /> 
+<input type=“checkbox” name=“chkOp3” value=“2” /> 
+
+<input type=“submit” value=“Enviar Datos” /> 
+
+<input type=“reset” value=“Borrar Datos” /> 
+
+<select name=“cboLista” size=“2” id=“cboLista” >
+	<option value=“1”> Opción 1 </option>
+	<option value=“2” selected > Opción 2  </option>
+</select>
+
+<select name=“cboLista” id=“cboLista” >
+	<optgroup label=“Grupo 1”>
+		<option value=“1”> Opción 1 </option>
+		<option value=“2”> Opción 2 </option>
+	</optgroup>
+	<optgroup label=“Grupo 2”>
+		<option value=“3”> Opción 3 </option>
+		<option value=“4”> Opción 4 </option>
+	</optgroup>	
+</select>
+
+<input list=“dlLista” placeholder=“Elija un destino”  />
+<datalist id=“dlLista” >
+	<option value=“Cuba”>
+	<option value=“Mexico” >
+</datalist>

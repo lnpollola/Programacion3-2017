@@ -58,8 +58,8 @@
     ?>
 
     
-
-    <form method="post" action="ProgInput.php">
+    <!--//Form confirmar><!-->
+    <!--<form method="post" action="ProgInput.php">
     Desea regresar s/n
     <br>
     <input type="radio" name="SI" value="s"> SI
@@ -67,6 +67,8 @@
     <input type="radio" name="NO" value="n"> NO
     <br>
     <input type="submit" value="confirmar">
-    </form>
+    </form>-->
+
+    <a href="ProgInput.php"> Volver> </a>
     
 </HTML>
