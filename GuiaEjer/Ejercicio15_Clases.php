@@ -3,7 +3,7 @@
     abstract class FiguraGeometrica 
     {
         //Atributos
-        private $_color:
+        private $_color;
         private $_perimetro;
         private $_superficie;
 
@@ -12,7 +12,7 @@
 
         //Metodos Abstractos
         protected abstract function CalcularDatos();
-        public function Dibujar();     
+        public abstract function Dibujar();     
         
         //Get y Set
         public function GetColor(){return $this->$_color;}
