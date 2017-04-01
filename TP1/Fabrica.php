@@ -33,18 +33,25 @@
             $key = array_search($persona, $this->_empleados);
             if (false !== $key) 
             { 
-                unset($this->_empleados,$persona);
+                unset($this->_empleados[$key]);
+                $arrayReindexado = array_values($this->_empleados);
+                $this->_empleados = $arrayReindexado;
                 return true;
             }
             else{return false;}
         }
-        private function EliminarEmpleadosRepetidos(){ array_unique($this->_empleados);}
+        private function EliminarEmpleadosRepetidos()
+        {
+               $this->_empleados=array_values(array_unique($this->_empleados,SORT_REGULAR));
+        }
+
         public function ToString()
         {
+
             $listaEmpleados="";
             foreach ($this->_empleados as $emp) 
             {
-                $listaEmpleados+=$emp->ToString();
+                $listaEmpleados= $listaEmpleados.$emp->ToString()."<br>";
             }
             return "Razon Social: ".$this->_razonSocial.
                     $listaEmpleados;

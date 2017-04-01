@@ -24,10 +24,10 @@
         abstract function Hablar($idioma);
         public function ToString()
         {
-            return  "Apellido: ".$this->getApellido()."-".
-                    "Nombre: "  .$this->getNombre()  ."-".
-                    "Dni: "     .$this->getDni()     ."-".
-                    "Sexo: "    .$this->getSexo()    ."-"."<br>";
+            return  "<br>Apellido: ".$this->getApellido()."-<br>".
+                    "Nombre: "  .$this->getNombre()  ."-<br>".
+                    "Dni: "     .$this->getDni()     ."-<br>".
+                    "Sexo: "    .$this->getSexo()    ."-<br>";
         }
     
     }
