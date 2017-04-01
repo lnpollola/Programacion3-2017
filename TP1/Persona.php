@@ -27,7 +27,7 @@
             return  "Apellido: ".$this->getApellido()."-".
                     "Nombre: "  .$this->getNombre()  ."-".
                     "Dni: "     .$this->getDni()     ."-".
-                    "Sexo: "    .$this->getSexo()    ."-";
+                    "Sexo: "    .$this->getSexo()    ."-"."<br>";
         }
     
     }

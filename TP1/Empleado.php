@@ -27,7 +27,7 @@
         {
             return  parent::ToString() ."-".
                     "Legajo: "         .$this->getLegajo() ."-".
-                    "Sueldo: "         .$this->getSueldo() ;
+                    "Sueldo: "         .$this->getSueldo()."<br>" ;
         }
     }
     
