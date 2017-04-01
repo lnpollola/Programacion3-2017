@@ -4,8 +4,8 @@
     {
         //Atributos
         private $_color;
-        private $_perimetro;
-        private $_superficie;
+        protected $_perimetro;
+        protected $_superficie;
 
         //Constructor 
         public function __construct(){}
@@ -15,15 +15,15 @@
         public abstract function Dibujar();     
         
         //Get y Set
-        public function GetColor(){return $this->$_color;}
-        public function __set($figColor) {$this->$_color = $figColor;}
+        public function GetColor(){return $this->_color;}
+        public function SetColor($figColor) {$this->_color = $figColor;}
         
         //Metodo Vitual
         public function ToString()
         {
-            return "Perimetro: ",$this->_perimetro, "<br>",
-                   "Superficie: ",$this->_superficie,"<br>",
-                   "Color: ",$this->_color;
+            return "Perimetro: ".$this->_perimetro."<br>".
+                   "Superficie: ".$this->_superficie."<br>".
+                   "Color: ".$this->_color;
         }
     }
 
@@ -42,15 +42,28 @@
         public function CalcularDatos()
         {
             $this->_superficie = $this->_ladoDos*$this->_ladoUno;
-            $this->_perimetro = $this->_ladoDos*2+_ladoUno*2;    
+            $this->_perimetro = $this->_ladoDos*2+$this->_ladoUno*2;    
         }
 
-        public function Dibujar(){}
+        public function Dibujar()
+        {
+            for($i=1;$i<($this->_ladoUno+1);$i++)
+            {
+               $asteriscos="";
+               for($j=0;$j<$this->_ladoDos;$j++)
+                {
+                    $asteriscos = $asteriscos."*";          
+                }
+               echo "<font color='blue'>$asteriscos<br></font>";
+            }
+        }
         public function ToString()
         {
-            return  parent::ToString(),"<br>"
-                    "Lado Uno: ", $this->_ladoUno,
-                    "Lado Dos: ", $this->_ladoDos;
+            echo "///////////////////RECTANGULO///////////////////"."<BR>";
+            echo  parent::ToString()."<br>".
+                    "Lado Uno: ".$this->_ladoUno."<br>".
+                    "Lado Dos: ".$this->_ladoDos."<br>";
+            $this -> Dibujar();
         }
     }
     
@@ -71,12 +84,28 @@
             $this->_superficie = $this->_base * $this->_altura;
             $this->_perimetro = $this->_base*3;
         }
-        public function Dibujar(){}
+
+
+        public function Dibujar()
+        {
+            for($i=1;$i<($this->_base+1);$i++)
+            {
+                $asteriscos="";
+                for($j=0;$j<$i;$j++)
+                {
+                    $asteriscos = $asteriscos."*";          
+                }
+                echo "<font color='red'>$asteriscos<br></font>";
+            }
+
+        }
         public function ToString()
         {
-            return  parent::ToString(),"<br>"
-                    "Altura: ", $this->_altura,
-                    "Base: ", $this->_base;
+            echo "///////////////////TRIANGULO///////////////////"."<BR>";
+            echo parent::ToString()."<br>".
+                    "Altura: ".$this->_altura."<br>".
+                    "Base: ".$this->_base."<br>";
+            $this->Dibujar();
         }
     }
 
