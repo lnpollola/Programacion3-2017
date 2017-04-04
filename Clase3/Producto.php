@@ -1,22 +1,22 @@
 <?PHP
     class Producto
     {
-        public $_codigo;
-        public $_descripcion;
-        public $_importe;
+        public $codigo;
+        public $descripcion;
+        public $importe;
 
         function __construct($codigo,$descripcion,$importe)
         {
-            $this->_codigo      = $codigo;
-            $this->_descripcion = $descripcion;
-            $this->_importe     = $importe;
+            $this->codigo      = $codigo;
+            $this->descripcion = $descripcion;
+            $this->importe     = $importe;
         }
 
         public function ToString()
         {
-            return "Codigo: ".$this->_codigo."<br>".
-                 "Descripcion: ".$this->_descripcion."<br>".
-                 "Importe: ".$this->_importe;
+            return "Codigo: ".$this->codigo."<br>".
+                 "Descripcion: ".$this->descripcion."<br>".
+                 "Importe: ".$this->importe."<br>";
         }
 
     }
