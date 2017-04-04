@@ -10,11 +10,13 @@
 
     $container->AgregarProducto($producto1);
 
-    for ($i=0;$i<2;$i++)
+    for ($i=0;$i<100;$i++)
     {
          $container->AgregarProducto(new Producto($i,"El producto $i", $i));
     }
 
     var_dump($container);
+
+    $container->GuardarProductos();
 
 ?>

@@ -11,9 +11,19 @@
         }
 
         public function AgregarProducto($producto)
+        {array_push($this->productos, $producto);}
+
+        public function GuardarProductos()
         {
-            array_push($this->productos, $producto);              
+            $ListadoProductos = fopen("Listado de productos.txt",'w');
+            foreach ($this->productos as $Prod)
+            {
+                fwrite($ListadoProductos, $Prod->ToString());
+            }
+         fclose($ListadoProductos);
         }
+
+       
 
     }
 ?>

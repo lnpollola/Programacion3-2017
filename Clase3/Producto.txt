@@ -1,1 +1,1 @@
-Codigo: 1<br>Descripcion: El producto 1<br>Importe: 100<br>
+Codigo: 1 Descripcion: El producto 1 Importe: 100
