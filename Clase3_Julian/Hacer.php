@@ -55,8 +55,8 @@ if(isset($_POST["Guardar1"]))
 {
     if(!file_exists($_POST["NombreArchivo"].".txt"))
     {
-        mkdir("Backup".date('d-m-y h m'));
-        copy($_POST["NombreArchivo"].".txt",$_POST["NombreArchivo"].date('d-m-y h m'));
+        mkdir("Backup".date('d-m-y h m'),0777);
+        copy($_POST["NombreArchivo"].".txt","Backup".date('d-m-y h m')."/".$_POST["NombreArchivo"].".txt");
     }
     else 
     {
