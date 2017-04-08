@@ -8,18 +8,13 @@ class Producto
         public $codigo;
         public $descripcion;
         public $importe;
-        public $nombrearchivo;
+  
     
-    public function __construct($cod,$descrip,$import,$nombredearchivo)
+    public function __construct($cod,$descrip,$import)
     {
         $this->codigo=$cod;
         $this->descripcion=$descrip;
         $this->importe=$import;
-        $this->nombrearchivo=$nombredearchivo;
-    }
-    public function GetNombreArchivo()
-    {
-        return $this->nombrearchivo;
     }
 
     public function ToString()
