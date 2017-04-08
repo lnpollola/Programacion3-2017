@@ -1,24 +1,2 @@
-
- Apellido: Pollo-
-Nombre: OtroEMpleado-
-Dni: 35316999-
-Sexo: M-
--Legajo: 20391-Sueldo: 19401023
-
- Apellido: Pollo-
-Nombre: OtroEMpleado-
-Dni: 35316999-
-Sexo: M-
--Legajo: 20391-Sueldo: 19401023
-
- Apellido: Pollo-
-Nombre: OtroEMpleado-
-Dni: 35316999-
-Sexo: M-
--Legajo: 20391-Sueldo: 19401023
-
- Apellido: Montana-
-Nombre: Jose -
-Dni: 130491-
-Sexo: M-
--Legajo: 193520-Sueldo: 0394103
+Montana-Jose -130491-M-193520-0394103
+Lopez-Pedro-304193-M-03185-939393

@@ -26,8 +26,8 @@
         public function ToString()
         {
             return  parent::ToString() ."-".
-                    "Legajo: "         .$this->getLegajo() ."-".
-                    "Sueldo: "         .$this->getSueldo()."\r\n" ;
+                    $this->getLegajo() ."-".
+                    $this->getSueldo() ;
         }
     }
     
