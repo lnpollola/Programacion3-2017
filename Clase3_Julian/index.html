@@ -1,0 +1,64 @@
+<html>
+
+<body>
+
+<!--Dentro del body, creo un form. 
+    En este, utilizo la función action para asignar
+    a que php quiero que vayan los datos, y le indico
+    que utilizo el metodo POST. -->
+    <!--Nota: el pre sirve para poner texto plano-->
+
+
+            <form action="Hacer.php" method="POST">
+                <!--Creo un un input de tipo text
+                Esto sería el cuadro para ingresar el texto.
+                y le ponemos un nombre usando el name que nos sirve
+                para tener la referencia en php-->
+                <pre>Ingrese Codigo:<br></pre>
+                <input type="text" name="Codigo">
+                <br>
+                <br>
+                <br>
+                <pre>Ingrese Descripcion:<br></pre>
+                <input type="text" name="Descripcion">
+                <br>
+                <br>
+                <br>
+                <pre>Ingrese Importe:<br></pre>
+                <input type="text" name="Importe">
+                <br>
+                <br>
+                <br>
+                <!--Creamos otro "cajon de texto" como solicito el profesor-->
+                <pre>Ingrese nombre que le quiere poner al archivo.</pre>
+                <input type="text" name="NombreArchivo">
+                <br>
+                
+                
+                <!--Creamos los dos input (Guardar/Leer) de tipo Submit, donde value
+                va a tener lo que queramos que aparezca en el boton y
+                de name le damos uno distinto para diferenciar ya que
+                vamos a tener que utilizarlo en el php-->
+                <pre><br>Ingrese para guardar los datos nuevos o si solo desea leer <br>los que tiene guardados:<br></pre>
+                <input type="Submit" value="Guardar" name="Guardar1">
+                <input type="Submit" value="Leer" name="Leer1">
+                <br><br><br>
+                <pre>O si desea leer un archivo existente, ingrese su nombre: </pre><br>
+                <input type="text" name="ArchivoBusqueda">
+                <br>
+                <input type="Submit" value="Buscar" name="Buscar1">
+                
+                
+                
+                
+                
+                
+                </form>
+            
+</body>
+
+
+
+
+
+</html>
