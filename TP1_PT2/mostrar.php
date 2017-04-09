@@ -5,16 +5,16 @@
     public static function LeerArchivo()
     {
         $archivoALeer=fopen("empleados.txt","r");
-        var_dump($archivoALeer);
         $cantEmp=0;
-        while (!feof($archivoALeer))
+        do
         {
             $cantEmp++;
             $renglon=fgets($archivoALeer);
-            $arrayaux=explode("-",$renglon);
-            $empleado[$cantEmp] = new Empleado($arrayaux[1],$arrayaux[0],$arrayaux[2],$arrayaux[3],$arrayaux[4],$arrayaux[5]);
+            $arrayaux= explode("-",$renglon,6);
+            $empleado[$cantEmp] = new Empleado($arrayaux[0],$arrayaux[1],$arrayaux[2],$arrayaux[3],$arrayaux[4],$arrayaux[5]);
             echo $empleado[$cantEmp]->ToString();
-        }
+        }  while (!feof($archivoALeer)&&trim(fgets($archivoALeer))!='');
+      
     }
     
 
