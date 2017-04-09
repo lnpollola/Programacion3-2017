@@ -1,6 +1,6 @@
 <html>  
     <body>
-        <form action="Administracion.php" method="POST">
+        <form action="Administracion.php" method="POST" enctype="multipart/form-data">
                 <input type="text" name="VNombre" placeholder="Nombre">
                 <br>
                 <input type="text" name="VApellido" placeholder="Apellido">
@@ -13,7 +13,9 @@
                 <br>
                 <input type="text" name="VSueldo" placeholder="Sueldo">
                 <br>
-                <input type="submit" name="VGuardar" value="Guardar">
+                <input type="file" name="VArchivo" id="VArchivo">
+                <br>
+                <input type="submit" name="VImagen" value="Subir">
         </form>
             
     </body>
