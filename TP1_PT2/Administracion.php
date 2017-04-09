@@ -25,13 +25,12 @@
                 ($_FILES["VArchivo"]["type"] == "image/png") ||
                 ($_FILES["VArchivo"]["type"] == "image/jpeg")
           ) 
-          && ($_FILES["VArchivo"]["size"] < 1)
+          && ($_FILES["VArchivo"]["size"] < 1000000)
           && !file_exists("fotos/". $_FILES["VArchivo"]["name"])
       ) 
         {
-            echo "Permitido el  archivo";
             //Instancio el empleado 
-            $empleado = new Empleado($_POST["VNombre"],$_POST["VApellido"],$_POST["VDNI"],$_POST["VSexo"],$_POST["VLegajo"],$_POST["VSueldo"],$_POST["VArchivo"]);
+            $empleado = new Empleado($_POST["VNombre"],$_POST["VApellido"],$_POST["VDNI"],$_POST["VSexo"],$_POST["VLegajo"],$_POST["VSueldo"],$_FILES["VArchivo"]["name"]);
             
             if (!file_exists("empleados.txt"))
                 {
@@ -45,9 +44,13 @@
                     $archivoEmpleados= fopen("empleados.txt","a");
                     fwrite($archivoEmpleados, $empleado->ToString()."\r\n" );
                     echo "El empleado se agrego correctamente";
-                    echo '<a href="mostrar.php">Mostrar</a>';
+                    echo '<a href="mostrar.php"><br> Mostrar<br></a>';
                 }
-            
+            $nombreArchivo = $empleado->getNombre()."-".$empleado->getApellido().".jpeg";
+            move_uploaded_file($_FILES["VArchivo"]["tmp_name"],
+            "./fotos/" .$nombreArchivo);
+            echo "Archivo Subido ";
+            echo '<img src="./fotos/" .$nombreArchivo alt="" />';
          }
        else 
        {
