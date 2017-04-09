@@ -26,7 +26,7 @@
         else 
         {
             $archivoEmpleados= fopen("empleados.txt","a");
-            fwrite($archivoEmpleados, $empleado->ToString() );
+            fwrite($archivoEmpleados, $empleado->ToString()."\r\n" );
             echo "El empleado se agrego correctamente";
             echo '<a href="mostrar.php">Mostrar</a>';
         }
