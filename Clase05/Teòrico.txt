@@ -1,0 +1,21 @@
+//Parcial
+ABM
+Alta Listado y Baja como minimo
+Estructuras
+Clases
+Metodos
+Boton de borrar, refiriendome al id
+Borrar el elemento y se dispara actualizacion automatico
++Puntaje 
+    Modificar
+        Quien Modificar
+        Mostrar datos anteriores
+        Que modificar 
+Practicar ABM en archivo
+Dsp pasar a base de datos
+
+//MySQL
+Configurar el SQL de tuars.
+Minimo elemento de la base de datos --> Tabla
+
+//OTRO TEMA, PHP
