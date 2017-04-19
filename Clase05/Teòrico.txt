@@ -19,3 +19,12 @@ Configurar el SQL de tuars.
 Minimo elemento de la base de datos --> Tabla
 
 //OTRO TEMA, PHP
+BASE, SERVIDOR, USUARIO Y PASSWORD
+2 formas de conectarse
+    TRADICIONAL
+    PDO
+        Ejemplo en Github EJEMPLO PDO VERLOS
+
+Clase que viene ALTA BAJA MODIFICACION EN ARCHIVO Y BD PARA Parcial
+CLASE QUE VIENE PDO Y DUDAS 
+    
