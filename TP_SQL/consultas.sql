@@ -13,17 +13,17 @@
 -- 2 
     SELECT * FROM proveedores WHERE LOCALIDAD='QUILMES';
 /*
-     +--------+--------+-----------+-----------+
- | NUMERO | NOMBRE | DOMICILIO | LOCALIDAD | 
- +--------+--------+-----------+-----------+
- | 100    | PEREZ  | PERON 876 | QUILMES   | 
- +--------+--------+-----------+-----------+
+    +--------+--------+-----------+-----------+
+    | NUMERO | NOMBRE | DOMICILIO | LOCALIDAD | 
+    +--------+--------+-----------+-----------+
+    | 100    | PEREZ  | PERON 876 | QUILMES   | 
+    +--------+--------+-----------+-----------+
 */
 
 -- 3
     SELECT * FROM envios WHERE cantidad BETWEEN 200 and 300; 
 /*
-     +--------+---------+----------+
+    +--------+---------+----------+
     | Numero | pNumero | Cantidad | 
     +--------+---------+----------+
     | 101    | 3       | 225      | 
@@ -44,13 +44,13 @@
 -- 5
     SELECT pNumero FROM envios LIMIT 3 ;
 /*
- +---------+
- | pNumero | 
- +---------+
- | 1       | 
- | 2       | 
- | 3       | 
- +---------+
+    +---------+
+    | pNumero | 
+    +---------+
+    | 1       | 
+    | 2       | 
+    | 3       | 
+    +---------+
  */
 -- 6
     SELECT * FROM proveedores;
@@ -62,17 +62,17 @@
     WHERE envios.Numero = proveedores.Numero
     AND envios.pNumero = productos.pNumero; 
 /*
- +---------+-------------+
- | nombre  | pNombre     | 
- +---------+-------------+
- | PEREZ   | Caramelos   | 
- | AGUIRRE | Caramelos   | 
- | PEREZ   | Cigarrillos | 
- | GIMENEZ | Cigarrillos | 
- | PEREZ   | Gaseosa     | 
- | GIMENEZ | Gaseosa     | 
- | AGUIRRE | Gaseosa     | 
- +---------+-------------+
+    +---------+-------------+
+    | nombre  | pNombre     | 
+    +---------+-------------+
+    | PEREZ   | Caramelos   | 
+    | AGUIRRE | Caramelos   | 
+    | PEREZ   | Cigarrillos | 
+    | GIMENEZ | Cigarrillos | 
+    | PEREZ   | Gaseosa     | 
+    | GIMENEZ | Gaseosa     | 
+    | AGUIRRE | Gaseosa     | 
+    +---------+-------------+
  */
 
  -- 7
@@ -87,3 +87,83 @@
  | 82883.94917011261 | 
  +-------------------+
  */
+
+ -- 8 
+    SELECT sum(cantidad) as Cant_total FROM envios WHERE Numero=102 and pNumero=1;
+/*
+    +------------+
+    | Cant_total | 
+    +------------+
+    | 600        | 
+    +------------+
+*/
+
+-- 9 
+    SELECT e.pNumero FROM envios AS e, proveedores AS p 
+    WHERE e.Numero= p.NUMERO and 
+    p.LOCALIDAD = "AVELLANEDA";
+/*
+    +---------+
+    | pNumero | 
+    +---------+
+    | 2       | 
+    | 3       | 
+    +---------+
+*/
+
+-- 10
+    SELECT prov.Domicilio, prov.Localidad
+    FROM proveedores as prov
+    WHERE nombre LIKE '%i%';
+/*
+    +-----------+------------+
+    | Domicilio | Localidad  | 
+    +-----------+------------+
+    | MITRE 750 | AVELLANEDA | 
+    | BOEDO 634 | BERNAL     | 
+    +-----------+------------+
+*/
+
+-- 11
+    INSERT INTO `productos` (`pNombre`,`Tamaño`,`Precio`) VALUES("Chocolate","Chico", 25.35);
+/*
+    +------------+--------------+----------+--------------+--------------+-------------+
+    | fieldCount | affectedRows | insertId | serverStatus | warningCount | changedRows | 
+    +------------+--------------+----------+--------------+--------------+-------------+
+    | 0          | 1            | 4        | 2            | 0            | 0           | 
+    +------------+--------------+----------+--------------+--------------+-------------+
+ */
+
+-- 12
+    INSERT INTO proveedores VALUES();
+/*
+    +------------+--------------+----------+--------------+--------------+-------------+
+    | fieldCount | affectedRows | insertId | serverStatus | warningCount | changedRows | 
+    +------------+--------------+----------+--------------+--------------+-------------+
+    | 0          | 1            | 103      | 2            | 0            | 0           | 
+    +------------+--------------+----------+--------------+--------------+-------------+
+*/
+
+-- 13
+    INSERT INTO proveedores (`NUMERO`,`NOMBRE`,`LOCALIDAD`)
+     VALUES (107,"ROSALES","LA PLATA");
+/*
+     +------------+--------------+----------+--------------+--------------+-------------+
+    | fieldCount | affectedRows | insertId | serverStatus | warningCount | changedRows | 
+    +------------+--------------+----------+--------------+--------------+-------------+
+    | 0          | 1            | 107      | 2            | 0            | 0           | 
+    +------------+--------------+----------+--------------+--------------+-------------+
+*/
+
+-- 14
+    UPDATE productos SET Precio=97.50 WHERE Tamaño="Grande";
+/*
+    +------------+--------------+----------+--------------+--------------+-------------+
+    | fieldCount | affectedRows | insertId | serverStatus | warningCount | changedRows | 
+    +------------+--------------+----------+--------------+--------------+-------------+
+    | 0          | 1            | 0        | 34           | 0            | 1           | 
+    +------------+--------------+----------+--------------+--------------+-------------+
+*/
+
+-- 15
+  
