@@ -166,4 +166,61 @@
 */
 
 -- 15
-  
+    UPDATE productos AS prod, envios AS env SET prod.Tamaño="Mediano"
+    WHERE prod.pNumero = env.pNumero AND env.Cantidad>=300  
+
+    UPDATE productos SET tamaño="Chico" where pNumero=1
+    UPDATE productos SET tamaño="Mediano" where pNumero=2
+    UPDATE productos SET tamaño="Grande" where pNumero=3
+    UPDATE productos SET tamaño="Chico" where pNumero=4
+
+    SELECT * FROM productos
+/*
+    +---------+-------------+--------+---------+
+    | pNumero | pNombre     | Precio | Tamaño  | 
+    +---------+-------------+--------+---------+
+    | 1       | Caramelos   | 1.5    | Mediano | 
+    | 2       | Cigarrillos | 45.89  | Mediano | 
+    | 3       | Gaseosa     | 97.5   | Mediano | 
+    | 4       | Chocolate   | 25.35  | Chico   | 
+    +---------+-------------+--------+---------+
+  */
+
+  -- 16 
+    DELETE FROM PRODUCTOS WHERE pNumero=1;
+/*
+    +------------+--------------+----------+--------------+--------------+-------------+
+    | fieldCount | affectedRows | insertId | serverStatus | warningCount | changedRows | 
+    +------------+--------------+----------+--------------+--------------+-------------+
+    | 0          | 1            | 0        | 2            | 0            | 0           | 
+    +------------+--------------+----------+--------------+--------------+-------------+
+    
+    +---------+-------------+--------+---------+
+    | pNumero | pNombre     | Precio | Tamaño  | 
+    +---------+-------------+--------+---------+
+    | 2       | Cigarrillos | 45.89  | Mediano | 
+    | 3       | Gaseosa     | 97.5   | Mediano | 
+    | 4       | Chocolate   | 25.35  | Chico   | 
+    +---------+-------------+--------+---------+
+*/
+
+-- 17  
+    DELETE 
+    FROM PROVEEDORES 
+    WHERE NUMERO IN
+        (select * from ( SELECT prov.Numero
+          FROM envios as env right join proveedores AS prov
+          ON env.Numero = prov.Numero 
+          GROUP BY prov.Numero
+          HAVING COALESCE(sum(env.Cantidad),0)=0
+        )as temp)   
+
+    SELECT * FROM PROVEEDORES
+/*
+ +------------+--------------+----------+--------------+--------------+-------------+
+ | fieldCount | affectedRows | insertId | serverStatus | warningCount | changedRows | 
+ +------------+--------------+----------+--------------+--------------+-------------+
+ | 0          | 2            | 0        | 34           | 0            | 0           | 
+ +------------+--------------+----------+--------------+--------------+-------------+
+*/
+
