@@ -208,7 +208,8 @@
     DELETE 
     FROM PROVEEDORES 
     WHERE NUMERO IN
-        (select * from ( SELECT prov.Numero
+        (select * from ( 
+          SELECT prov.Numero
           FROM envios as env right join proveedores AS prov
           ON env.Numero = prov.Numero 
           GROUP BY prov.Numero
