@@ -76,4 +76,14 @@
  */
 
  -- 7
-    
+    SELECT e.Cantidad, p.Precio, SUM(e.CANTIDAD*p.Precio) as monto_total
+    FROM envios as e, productos as p
+    WHERE e.pNumero = p.pNumero
+    GROUP BY e.Cantidad, p.Precio; 
+/*
+ +-------------------+
+ | monto_total       | 
+ +-------------------+
+ | 82883.94917011261 | 
+ +-------------------+
+ */
