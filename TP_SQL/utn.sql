@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-04-2017 a las 15:31:39
+-- Tiempo de generación: 23-04-2017 a las 20:25:48
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -32,6 +32,19 @@ CREATE TABLE `envios` (
   `Cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `envios`
+--
+
+INSERT INTO `envios` (`Numero`, `pNumero`, `Cantidad`) VALUES
+(100, 1, 500),
+(100, 2, 1500),
+(100, 3, 100),
+(101, 2, 55),
+(101, 3, 225),
+(102, 1, 600),
+(102, 3, 300);
+
 -- --------------------------------------------------------
 
 --
@@ -45,6 +58,15 @@ CREATE TABLE `productos` (
   `Tamaño` varchar(20) COLLATE utf32_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`pNumero`, `pNombre`, `Precio`, `Tamaño`) VALUES
+(2, 'Cigarrillos', 45.89, 'Mediano'),
+(3, 'Gaseosa', 97.5, 'Mediano'),
+(4, 'Chocolate', 25.35, 'Chico');
+
 -- --------------------------------------------------------
 
 --
@@ -53,9 +75,9 @@ CREATE TABLE `productos` (
 
 CREATE TABLE `proveedores` (
   `NUMERO` int(11) NOT NULL,
-  `NOMBRE` varchar(30) CHARACTER SET utf32 COLLATE utf32_spanish2_ci NOT NULL,
-  `DOMICILIO` varchar(50) CHARACTER SET utf32 COLLATE utf32_spanish2_ci NOT NULL,
-  `LOCALIDAD` varchar(80) CHARACTER SET utf32 COLLATE utf32_spanish2_ci NOT NULL
+  `NOMBRE` varchar(30) CHARACTER SET utf32 COLLATE utf32_spanish2_ci DEFAULT NULL,
+  `DOMICILIO` varchar(50) CHARACTER SET utf32 COLLATE utf32_spanish2_ci DEFAULT NULL,
+  `LOCALIDAD` varchar(80) CHARACTER SET utf32 COLLATE utf32_spanish2_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
@@ -97,13 +119,16 @@ ALTER TABLE `proveedores`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `pNumero` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `pNumero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
+ALTER TABLE `proveedores`
+  MODIFY `NUMERO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
 
 INSERT INTO `proveedores` (`NOMBRE`,`DOMICILIO`,`LOCALIDAD`)
 VALUES 
