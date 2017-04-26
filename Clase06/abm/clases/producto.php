@@ -1,4 +1,7 @@
 <?php
+
+require "AccesoDatos.php";
+
 class Producto
 {
 //--------------------------------------------------------------------------------//
@@ -98,6 +101,30 @@ class Producto
 		
 		return $ListaDeProductosLeidos;
 		
+	}
+
+	public static function TraerTodosLosProductosBD()
+	{
+		$arrayRetorno = array();
+
+		$_objetoAcceso = AccesoDatos::DameUnObjetoAcceso(); 
+		$consulta = $_objetoAcceso->RetornarConsulta("SELECT codigo_barra as codBarra, nombre, path_foto as pathFoto FROM producto"); 
+		 $consulta->execute();
+		// $datos =$consulta->fetchall();
+		// $datos_2 = $consulta->fetch(PDO::FETCH_LAZY);
+		// $datos_3 = $consulta -> fetchObject("producto");
+
+		// var_dump($consulta);
+		//	var_dump($datos);
+		// var_dump($datos_2);
+		 while ($fila = $consulta->fetchObject("producto")) //devuelve true o false depende si encuentra o no el objeto
+		 {//FETCHOBJECT -> RETORNA UN OBJETO DE UNA CALSE DADA
+            //    var_dump($fila);
+			 array_push($arrayRetorno,$fila);
+		 }
+		 
+		 return $arrayRetorno;
+		// var_dump($datos_3);
 	}
 //--------------------------------------------------------------------------------//
 }

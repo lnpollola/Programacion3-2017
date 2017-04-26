@@ -16,3 +16,10 @@ a la base de datos y poder utilizarla.
 > 
     1- Ejecutar el .sql de CD de Clase06
     2- Ejecutar el .sql de productos en abm
+
+AccesoDatos es la conexion a la base de datos
+En el constructor tengo que tener la instanciacion
+Ejemplo 6 y 7 de la clase 06 me da el objeto
+(PARCIAL) ALTA; LISTAR; BORRAR; MODIFICAR ; GUARDADO EN ARCHIVO Y BD
+Los archivos de administracion actuan como nexo entre el HTML y las clases que guardan/borran/trae datos 
+que tambien pasan por el AccesoDatos y de ahi hasta la BD

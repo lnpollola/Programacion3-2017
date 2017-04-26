@@ -23,7 +23,7 @@
 
 <?php 
 
-$ArrayDeProductos = Producto::TraerTodosLosProductos();
+$ArrayDeProductos = Producto::TraerTodosLosProductosBD(); //MODIFIQUE ESTE POR BD AGREGADO AL FINAL LLAMANDO AL NUEVO METODO
 
 echo "<table class='table'>
 		<thead>
