@@ -1,6 +1,6 @@
 <?php
 
-require "AccesoDatos.php";
+require_once "AccesoDatos.php";
 
 class Producto
 {

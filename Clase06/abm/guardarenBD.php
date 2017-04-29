@@ -1,5 +1,5 @@
 <?PHP
-    require "clases/AccesoDatos.php";
+    require_once "clases/AccesoDatos.php";
 
     if (isset($_POST["guardar"]))
     {
