@@ -10,6 +10,10 @@
     $consulta->bindvalue(':pathFoto',$_FILES["archivo"]["name"], PDO::PARAM_STR);
     $consulta->execute();
 
+    $name = $_FILES["archivo"]["name"];
+    $archivoTmp = $_FILES["archivo"]["tmp_name"];
+    copy($archivoTmp,"archivos"."/".$name);
+              
     echo "Se actualizo ". $consulta->rowCount() . "registro/s";
     
     echo "<a href=modificacion.php> Volver </a>";

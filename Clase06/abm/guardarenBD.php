@@ -16,7 +16,11 @@
             $consulta->bindvalue(':nombre', $_POST["nombre"],PDO::PARAM_STR );
             $consulta->bindvalue(':archivo', $_FILES["archivo"]["name"],PDO::PARAM_STR );
             $consulta->execute();
-
+            //Muevo el archivo
+            $name = $_FILES["archivo"]["name"];
+            $archivoTmp = $_FILES["archivo"]["tmp_name"];
+            copy($archivoTmp,"archivos"."/".$name);
+              
             echo "Elemento insertado";
             echo "<a href=index.html>Volver</a> ";
         }

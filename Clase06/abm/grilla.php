@@ -46,7 +46,10 @@ echo "<table class='table'>
                                 <input type=submit name=botonModificacion class=MiBotonUTN value=Modificar />
                                 <input type=hidden name=codBarra value=".$prod->GetCodBarra()." />
 								</form>
-                   
+								<form method=post name=eliminar1  action=bajaenBD.php>
+								<input type=submit name=botonEliminar1 class=MiBotonUTN value=Eliminar />
+								<input type=hidden name=codBarra value=".$prod->GetCodBarra()." />
+								</form>
 					</td>
 				</tr>";
 	}	
