@@ -31,6 +31,7 @@ echo "<table class='table'>
 				<th>  COD. BARRA </th>
 				<th>  NOMBRE     </th>
 				<th>  FOTO       </th>
+				<th>  ACCION     </th>
 			</tr> 
 		</thead>";   	
 
@@ -40,6 +41,13 @@ echo "<table class='table'>
 					<td>".$prod->GetCodBarra()."</td>
 					<td>".$prod->GetNombre()."</td>
 					<td><img src='archivos/".$prod->GetPathFoto()."' width='100px' height='100px'/></td>
+					   <td>
+                                <form method=post name=modificarProducto action= modificacion.php>
+                                <input type=submit name=botonModificacion class=MiBotonUTN value=Modificar />
+                                <input type=hidden name=codBarra value=".$prod->GetCodBarra()." />
+								</form>
+                   
+					</td>
 				</tr>";
 	}	
 echo "</table>";		
