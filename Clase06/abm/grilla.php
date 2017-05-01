@@ -15,9 +15,6 @@
 	<a class="btn btn-info" href="index.html">Menu principal</a>
 
 	<div class="container">
-		<div class="page-header">
-			<h1>Ejemplos de Grilla</h1>      
-		</div>
 		<div class="CajaInicio animated bounceInRight">
 			<h1>Listado de PRODUCTOS</h1>
 

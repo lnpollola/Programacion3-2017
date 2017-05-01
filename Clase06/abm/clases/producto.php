@@ -91,7 +91,6 @@ class Producto
 		{
 			$archAux = fgets($archivo);
 			$productos = explode(" - ", $archAux);
-			//http://www.w3schools.com/php/func_string_explode.asp
 			$productos[0] = trim($productos[0]);
 			if($productos[0] != ""){
 				$ListaDeProductosLeidos[] = new Producto($productos[0], $productos[1],$productos[2]);

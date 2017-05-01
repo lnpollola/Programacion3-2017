@@ -2,35 +2,7 @@
 <?PHP
     require "clases/producto.php";
     
-    // if( trim($_POST["VNombre"])=='' || 
-    //     trim($_POST["VApellido"])=='' || 
-    //     trim($_POST["VDNI"])=='' || 
-    //     trim($_POST["VSexo"])==''  || 
-    //     trim($_POST["VLegajo"])==''  || 
-    //     trim($_POST["VSueldo"])==''  
-    //     || trim($_FILES["VArchivo"]["name"])==''
-    //   )
-    // {
-    //      echo "Todos los datos son obligatorios.\r\n";
-    //      echo '<a href="index.html"> Volver a Ingresar</a>';
-    // }
-    // else 
-    // {
-    //   if 
-    //   (
-    //       (
-    //           ($_FILES["VArchivo"]["type"] == "image/jpg") ||
-    //             ($_FILES["VArchivo"]["type"] == "image/bmp") ||
-    //             ($_FILES["VArchivo"]["type"] == "image/gif") ||
-    //             ($_FILES["VArchivo"]["type"] == "image/png") ||
-    //             ($_FILES["VArchivo"]["type"] == "image/jpeg")
-    //       ) 
-    //       && ($_FILES["VArchivo"]["size"] < 1000000)
-    //       && !file_exists("fotos/". $_FILES["VArchivo"]["name"])
-    //   ) 
-        // {
-            //Instancio el empleado 
-            $producto = new Producto($_POST["codBarra"] ,$_POST["nombre"], $_FILES["archivo"]["name"]);
+    $producto = new Producto($_POST["codBarra"] ,$_POST["nombre"], $_FILES["archivo"]["name"]);
 
             if (!file_exists("productos.txt"))
                 {
