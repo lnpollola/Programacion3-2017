@@ -14,8 +14,13 @@
         }
         else 
         {
-            echo "Se eliminaron ". $consulta->rowCount() . "filas";
+            echo '<script type="text/javascript">alert("Se elimino 1 articulo");</script>';
+            if (isset($_POST["botonEliminar1"]))
+            {
+                require_once "grilla.php";
+            }
         }
+        
         echo "<a href=index.html> Volver </a>";
     }
     catch (PDOException $e)

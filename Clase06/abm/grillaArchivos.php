@@ -22,8 +22,11 @@
 			<h1>Listado de PRODUCTOS</h1>
 
 <?php 
+//Array en ARCHIVO
+$ArrayDeProductos = Producto::TraerTodosLosProductos();
 
-$ArrayDeProductos = Producto::TraerTodosLosProductosBD(); //MODIFIQUE ESTE POR BD AGREGADO AL FINAL LLAMANDO AL NUEVO METODO
+//Array en BD
+// $ArrayDeProductos = Producto::TraerTodosLosProductosBD(); //MODIFIQUE ESTE POR BD AGREGADO AL FINAL LLAMANDO AL NUEVO METODO
 
 echo "<table class='table'>
 		<thead>

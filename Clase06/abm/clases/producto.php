@@ -85,7 +85,7 @@ class Producto
 		$ListaDeProductosLeidos = array();
 
 		//leo todos los productos del archivo
-		$archivo=fopen("archivos/productos.txt", "r");
+		$archivo=fopen("productos.txt", "r");
 		
 		while(!feof($archivo))
 		{
