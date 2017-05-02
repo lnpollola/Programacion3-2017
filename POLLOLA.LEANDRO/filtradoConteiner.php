@@ -27,7 +27,7 @@
                 else 
                 {   
                     echo "	<form id=FormIngreso method=post enctype=multipart/form-data action=seleccionarenBD.php >
-				            <input type=text name=codBarra placeholder='Ingrese pais para filtrar sus conteiner'  /><br>
+				            <input type=text name=paisFiltro placeholder='Ingrese pais para filtrar sus conteiner'  /><br>
 				            <input type=submit class=MiBotonUTN name=modificar value=Seleccionar >
 			                </form>";
                 }

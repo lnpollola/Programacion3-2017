@@ -19,7 +19,7 @@ try
         $i++;
         }
         //Abro el archivo para sobreescribir
-        $archivo = "usuario.txt";
+        $archivo = "clases/usuario.txt";
         $abrir = fopen($archivo, 'w');
         //Borro el archivo con el indice $i que saque en el foreach
         unset($arrayArchivo[$i]);
@@ -28,7 +28,7 @@ try
         $arrayArchivo=$reindex;
         //recorro el array para guardarlo en el txt
         foreach ($arrayArchivo as $key) {
-            
+        
             fwrite($abrir,$key->ToString());
         }
         
