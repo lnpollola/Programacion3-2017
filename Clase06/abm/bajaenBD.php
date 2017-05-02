@@ -20,8 +20,6 @@
                 require_once "grilla.php";
             }
         }
-        
-        echo "<a href=index.html> Volver </a>";
     }
     catch (PDOException $e)
     {
