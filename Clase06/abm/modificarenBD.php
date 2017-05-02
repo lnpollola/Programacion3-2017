@@ -16,6 +16,6 @@
               
     echo "Se actualizo ". $consulta->rowCount() . "registro/s";
     
-    echo '<meta http-equiv="refresh" content="0; url=http://localhost:8080/Programacion3-2017/Clase06/abm/modificacion.php" />'
+    echo '<meta http-equiv="refresh" content="0; url=http://localhost:8080/Programacion3-2017/Clase06/abm/formmodificacionBD.php" />'
 
 ?>

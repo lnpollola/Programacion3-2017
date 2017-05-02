@@ -91,7 +91,6 @@ class Producto
 		{
 			$archAux = fgets($archivo);
 			$productos = explode(" - ", $archAux);
-			var_dump($productos);
 			$productos[0] = trim($productos[0]);
 			if($productos[0] != ""){
 				$ListaDeProductosLeidos[] = new Producto($productos[0], $productos[1],$productos[2]);

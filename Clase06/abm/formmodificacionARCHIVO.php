@@ -20,11 +20,12 @@
             <?PHP
                 require_once("clases\producto.php");
                 //Si entra por primera vez selecciona, sino modifica con placeholder con valores
-                if(isset($_POST["modificar"]))
+                if(isset($_POST["modificar"]) && $existeProducto==1 )
                 {
-                    echo "	<form id=FormIngreso method=post enctype=multipart/form-data action=modificarenBD.php >
+                    echo "	<form id=FormIngreso method=post enctype=multipart/form-data action=modificarArchivo.php >
 				            <input type=text name=codBarra placeholder='Codigo Actual:$codProducto'  />
                             <input type=hidden name=codAnterior value='$codProducto' />
+                            <input type=hidden name=posicionArray value='$posicionArray' />
                             <input type=text name=nombre placeholder='Nombre Actual:$nombreProducto'  />
                             <input type=file name=archivo value='$pathFotoProducto' /> 
 				            <input type=submit class=MiBotonUTN name=modificar value=Modificar Valores/>

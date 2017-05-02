@@ -42,7 +42,7 @@ echo "<table class='table'>
 					<td>".$prod->GetNombre()."</td>
 					<td><img src='archivos/".$prod->GetPathFoto()."' width='100px' height='100px'/></td>
 					   <td>
-                                <form method=post name=modificarProducto action= modificarArchivo.php>
+                                <form method=post name=modificarProducto action= formmodificacionARCHIVO.php>
                                 <input type=submit name=botonModificacion class=MiBotonUTN value=Modificar />
                                 <input type=hidden name=codBarra value=".$prod->GetCodBarra()." />
 								</form>
