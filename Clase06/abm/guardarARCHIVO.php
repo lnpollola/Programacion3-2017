@@ -35,14 +35,14 @@
             if (!file_exists("productos.txt"))
                 {
                     $archivoProductos= fopen("productos.txt","w");
-                    fwrite($archivoProductos, $producto->ToString()."\r\n" );
+                    fwrite($archivoProductos, $producto->ToString());
                     echo "Se creo el archivo y  se guardo el producto";
                     echo '<a href="grillaArchivos.php">Mostrar</a>';
                 }
             else 
                 {
                     $archivoProductos= fopen("productos.txt","a");
-                    fwrite($archivoProductos, $producto->ToString()."\r\n" );
+                    fwrite($archivoProductos, $producto->ToString());
                     echo "El producto se agrego correctamente";
                     echo '<a href="grillaArchivos.php"><br> Mostrar<br></a>';
                 }
