@@ -2,7 +2,7 @@
     require_once "usuario.php";
     
     $usuario = new Usuario ($_POST["nombUsuario"],$_POST["corrUsuario"],$_POST["edadUsuario"],$_POST["passUsuario"]); 
-    $archivo = "usuario.txt";
+    $archivo = "clases/usuario.txt";
             if (!file_exists($archivo))
                 {
                     $archivoUsuarios= fopen($archivo,"w");
