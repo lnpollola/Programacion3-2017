@@ -1,9 +1,9 @@
 <?PHP
-    //INICIO DE SESION PHP                        
+    // INICIO DE SESION PHP                        
     session_start();
     if (!isset($_SESSION['count'])) 
     {
-        $_SESSION['count'] = 0;
+        $_SESSION['count'] = 0; 
         echo "<div>
                 <p> Seleccione color para cambiar el fondo:</p>
                 <select id=MENU onchange=changecolor(container,value)>
@@ -39,31 +39,10 @@
             </body>
             ";
     }
-    // var_dump($_SESSION['count']);
-    //DESREGISTRO VARIABLE
-    // unset($_SESSION['count']);
+    var_dump($_SESSION['count']);
+    // DESREGISTRO VARIABLE
+    unset($_SESSION['count']);
     
-    //CON ESTO CIERRO LA SESION, NO ES OBLIGATORIO
+    // CON ESTO CIERRO LA SESION, NO ES OBLIGATORIO
     session_write_close();
-?>
-
-<!--<html>
-    <body>
-        <script>
-            function changecolor(id,color)
-            {
-                document.body.style.backgroundColor = color;
-            }
-        </script>-->
-        <!--SELECTOR DE COLOR DE FONDO 
-        <div>
-                <p> Seleccione color para cambiar el fondo:</p>
-                <select id=container onchange="changecolor(container,value)">
-                    <option value="white">BLANCO </option>
-                    <option value="red">ROJO</option>
-                    <option value="blue">AZUL</option>
-                    <option value="green">VERDE</option>
-                </select>
-        </div>
-    </body>
-</html>-->
+ ?>
