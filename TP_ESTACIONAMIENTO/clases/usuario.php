@@ -133,7 +133,6 @@ class Usuario
         return $uno;
     }
 
-	 $
     
 	public static function ValidarUsuario($nombre)
 	{
@@ -144,7 +143,7 @@ class Usuario
 		}
 		else 
 		{
-			echo "El usuario existe"
+			echo "El usuario existe";
 		}
 	}
 

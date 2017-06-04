@@ -1,7 +1,7 @@
 <?php
 
 require '/vendor/autoload.php';
-require '/clases/AccesoDatos.php';
+require '/clases/usuario.php';
 
 $app = new \Slim\App;
 
@@ -13,56 +13,34 @@ $app->GET('/get', function ($request,$response) {
     return $response;
 });
 
-$app->POST('/post', function ($request,$response) {
 
-    $response->getBody()->write("HOLA POST");
-
-    return $response;
+$app->get('/traertodosUsuarios', function ($request, $response) {
+    $usuarios = Usuario::TraerTodosLosusuarios();
+    return $response->withJson($usuarios);
 });
 
-//EJEMPLO CON PROGRAMACION
-//TODOS
-$app->get('/traertodos', function ($request, $response, $args) {
 
-        $_objetoAcceso = AccesoDatos::DameUnObjetoAcceso(); 
-	    $consulta = $_objetoAcceso->RetornarConsulta("SELECT ID , CLAVE , MAIL , ESTADO FROM usuario"); 
-        $consulta->execute();
-        $todos = $consulta->fetchAll();
-        return $response->withJson($todos); 
-    });
+$app->get('/traeruno/[{id}]', function ($request, $response, $args) {
+          $uno = Usuario::TraerUnUsuarioBD($args['id']);
+          return $response->withJson($uno);
+        });
+$app->post('/alta', function ($request, $response) {
+    require_once("funciones/altaenBD.php");
+    // return $response->write("alta.");
+});
+$app->delete('/baja', function ($request, $response) {
+    return $response->write("delete.");
+});
+$app->put('/modificacion', function ($request, $response) {
+    return $response->write("modificacion.");
+});
+$app->patch('/cambiarestado', function ($request, $response) {
+    return $response->write("cambiarestado.");
+});
+$app->post('/validarusuario', function ($request, $response) {
+    return $response->write("validarusuario.");
+});
 
-//CON ID
- $app->get('/traeruno/[{id}]', function ($request, $response, $args) {
-        
-        $_objetoAcceso = AccesoDatos::DameUnObjetoAcceso(); 
-	    $consulta = $_objetoAcceso->RetornarConsulta("SELECT ID , CLAVE , MAIL , ESTADO FROM usuario WHERE id=:id"); 
-        $consulta->bindParam("id", $args['id']);
-        $consulta->execute();
-        $uno = $consulta->fetchAll();
-        return $response->withJson($uno); 
-     });
-
-// //EJEMPLO SIN PROGRAMACION
-// //TODOS
-// $app->get('/traertodos', function ($request, $response, $args) {
-
-//         $_objetoAcceso = AccesoDatos::DameUnObjetoAcceso(); 
-// 	    $consulta = $_objetoAcceso->RetornarConsulta("SELECT ID , CLAVE , MAIL , ESTADO FROM usuario"); 
-//         $consulta->execute();
-//         $todos = $consulta->fetchAll();
-//         return $response->withJson($todos); 
-//     });
-
-// //CON ID
-//  $app->get('/traeruno/[{id}]', function ($request, $response, $args) {
-        
-//         $_objetoAcceso = AccesoDatos::DameUnObjetoAcceso(); 
-// 	    $consulta = $_objetoAcceso->RetornarConsulta("SELECT ID , CLAVE , MAIL , ESTADO FROM usuario WHERE id=:id"); 
-//         $consulta->bindParam("id", $args['id']);
-//         $consulta->execute();
-//         $uno = $consulta->fetchAll();
-//         return $response->withJson($uno); 
-//      });
 
 
 
