@@ -106,11 +106,10 @@ class Usuario
 	public static function TraerTodosLosusuarios()
 	{
 		$arrayRetorno = array();
-		//Este Metodo esta creado por nosotros este.
 		$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
-		$consulta = $objetoAcceso->RetornarConsulta('SELECT nombre, `Password`, Tipo, Turno, Estado  FROM `usuarios`');
+		$consulta = $objetoAcceso->RetornarConsulta('SELECT nombre, `password`, tipo, turno, estado  FROM `usuarios`');
 		$consulta->Execute();
-		while ($fila = $consulta->fetchObject("usuario"))
+		while ($fila = $consulta->fetchObject("Usuario"))
 		{
 			 array_push($arrayRetorno,$fila);
 		 }

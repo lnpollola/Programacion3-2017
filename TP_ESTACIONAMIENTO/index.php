@@ -5,15 +5,6 @@ require '/clases/usuario.php';
 
 $app = new \Slim\App;
 
-//EJEMPLOS
-$app->GET('/get', function ($request,$response) {
-
-    $response->getBody()->write("HOLA GET");
-
-    return $response;
-});
-
-
 $app->get('/traertodosUsuarios', function ($request, $response) {
     $usuarios = Usuario::TraerTodosLosusuarios();
     return $response->withJson($usuarios);
