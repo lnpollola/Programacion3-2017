@@ -1,6 +1,6 @@
 <?php
 //Incluimos la clase AccesoDatos.php que no estaba. La copiamos desde la Carpeta Clases de Clase06
-require "AccesoDatos.php";
+require "/clases/AccesoDatos.php";
 class Usuario
 {
 //--------------------------------------------------------------------------------//
@@ -120,7 +120,7 @@ class Usuario
 	public static function TraerUnUsuario($aux)
     {
         $objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
-        $consulta = $objetoAcceso->RetornarConsulta('SELECT nombre, `Password`, Tipo, Estado, Turno FROM usuarios WHERE nombre=:Nombre');
+        $consulta = $objetoAcceso->RetornarConsulta('SELECT nombre, `password`, tipo, turno, estado FROM usuarios WHERE nombre=:nombre');
         $consulta->bindParam("nombre", $aux);
         $consulta->execute();
         $uno = $consulta->fetchAll();
@@ -129,21 +129,46 @@ class Usuario
               $uno=0;
               return $uno;
           }
-        return $uno;
+		  else 
+		  {
+				return $uno;
+		  }
+        
     }
 
-    
-	public static function ValidarUsuario($nombre)
+	public static function ValidarUsuario($nombre,$password)
 	{
-		
-		if(Usuario::TraerUnUsuario($nombre) == 0)
-		{
-			echo "El usuario no existe";
-		}
-		else 
-		{
-			echo "El usuario existe";
-		}
+        
+         	$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
+            $consulta = $objetoAcceso->RetornarConsulta('SELECT nombre FROM usuarios WHERE nombre=:nombre');
+            $consulta->bindParam("nombre",$nombre);
+        
+            $consulta->execute();    
+            $uno= $consulta->fetchAll();
+            
+            if($uno == NULL)
+            {
+                $rta= "El usuario no existe";
+            }
+            else if($uno == TRUE )
+            {
+                $objetoAcceso2 = AccesoDatos::DameUnObjetoAcceso();
+                $consulta2 = $objetoAcceso2->RetornarConsulta('SELECT nombre, `password` FROM usuarios WHERE nombre=:nombre AND `password`=:pass');
+                $consulta2->bindParam("nombre",$nombre);
+                $consulta2->bindParam("pass",$password);
+                $consulta2->execute();
+                $dos= $consulta2->fetchAll();
+                
+                if($dos == TRUE)
+                {
+                    $rta= "El usuario existe";
+                }
+                else
+                {
+                    $rta= "Contraseña incorrecta";
+                }
+            }
+        return $rta;
 	}
 
 	
