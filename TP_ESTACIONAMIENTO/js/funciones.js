@@ -21,12 +21,14 @@ function ValidarUsuario()
         data: {
 			usuario : usuario
 		},
-		success: function(data, textStatus, jqXHR){
+		success:
+			function(data, textStatus, jqXHR){
 			alert(data);
-		
+			window.location.href = "./EMP_index.html";
 		},
 		error: function(jqXHR, textStatus, errorThrown){
 			alert(jqXHR.responseText + "\n" + textStatus + "\n" + errorThrown);
+			
 		}
       //  async: true
     });

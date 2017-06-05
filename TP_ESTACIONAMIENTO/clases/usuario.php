@@ -161,7 +161,7 @@ class Usuario
                 
                 if($dos == TRUE)
                 {
-                    $rta= "El usuario existe";
+                    $rta= "Bienvenido/a $nombre";
                 }
                 else
                 {

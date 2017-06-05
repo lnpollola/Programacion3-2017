@@ -4,7 +4,7 @@ require '/vendor/autoload.php';
 require '/clases/usuario.php';
 
 $app = new \Slim\App;
-
+    
 //USUARIO
 $app->get('/traertodosUsuarios', function ($request, $response) {
     $usuarios = Usuario::TraerTodosLosusuarios();

@@ -23,8 +23,8 @@
         <div id="logo_text">
           <!-- class="logo_colour", allows you to change the colour of the text -->
            <h1><a href="..\indexEMP.html">ENTRADA de VEHICULO<span class="logo_colour"></span></a></h1>
-          <h2>Alumno: Julian Graziano.</h2>
-          <h2>Curso: ProgramacionIII.</h2>
+          <h2>Alumno: LEANDRO POLLOLA.</h2>
+          <h2>Curso: PROGRAMACION 3.</h2>
         </div>
       </div>
       <div id="menubar">
@@ -42,7 +42,7 @@
         <!-- insert your sidebar items here -->      
         <h3>Links utiles</h3>
         <ul>
-         <li><a href="https://www.github.com/jngraziano">My Github</a></li>
+         <li><a href="https://www.github.com/lnpollola">My Github</a></li>
           <li><a href="https://www.w3schools.com/">W3school</a></li>
           <li><a href="http://php.net/">PHP.NET</a></li>
           <li><a href="http://www.sistemas-utnfra.com.ar/#/home">UTN Fra</a></li>
