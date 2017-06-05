@@ -80,13 +80,13 @@ class Usuario
 //--------------------------------------------------------------------------------//
 //--METODOS DE CLASE
 
+	//ABM
 	public static function Alta($obj)
 	{
 		$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
 		$consulta = $objetoAcceso->RetornarConsulta('INSERT INTO `usuarios`(`nombre`, `Turno`, `Password`, `Tipo`,`Estado`) VALUES ($obj[0],$obj[1],$obj[2],$obj[3],$obj[4])');
 		$consulta->Execute();
 	}
-
 	public static function Baja($aux)
 	{
 		$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
@@ -94,7 +94,6 @@ class Usuario
 		$consulta->bindvalue(':Nombre', $aux , PDO::PARAM_STRING);
 		$consulta->Execute();
 	}
-
 	public static function Modificacion($obj) //PATENTE, nro_cochera, Password 
 	{
 		$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
@@ -103,6 +102,7 @@ class Usuario
 		$consulta->Execute();
 	}
 
+	//TRAER BD
 	public static function TraerTodosLosusuarios()
 	{
 		$arrayRetorno = array();
@@ -136,6 +136,7 @@ class Usuario
         
     }
 
+	//VALIDAR
 	public static function ValidarUsuario($nombre,$password)
 	{
         
@@ -161,16 +162,29 @@ class Usuario
                 
                 if($dos == TRUE)
                 {
-                    $rta= "Bienvenido/a $nombre";
+                    // $rta= "Bienvenido/a $nombre";
+					$response_array['status'] = 'success'; 
                 }
                 else
                 {
-                    $rta= "Contraseña incorrecta";
+                    // $rta= "Contraseña incorrecta";
+					$response_array['status'] = 'error';  
                 }
             }
-        return $rta;
+        // return $rta;
+		return $response_array;
 	}
 
+	//INSERTAR LOGS
+	public static function ValidarTipoEmp ($nombre)
+	{
+		
+    		$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
+            $consulta = $objetoAcceso->RetornarConsulta('SELECT `password` FROM usuarios WHERE nombre=:nombre');
+            $consulta->bindParam("nombre",$nombre);
+            $consulta->execute();
+            $dos= $consulta->fetchAll();
+	}
 	
 
 //--------------------------------------------------------------------------------//

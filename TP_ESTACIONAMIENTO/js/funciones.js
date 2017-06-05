@@ -1,11 +1,8 @@
 
 function ValidarUsuario()
 {
-   
-	//alert("Hola Mundo!");
-
-    var pagina = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/validarusuario";
-
+    var paginaValid = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/validarusuario";
+	var paginaTipoe = 
 	var usuarioid = $("#usuarioid").val();
 	var passwordid = $("#passwordid").val();
 	
@@ -16,21 +13,39 @@ function ValidarUsuario()
    
   $.ajax({
         type: 'GET',
-        url: pagina,
+        url: paginaValid,
         dataType: "json",
         data: {
 			usuario : usuario
 		},
+
 		success:
-			function(data, textStatus, jqXHR){
-			alert(data);
-			window.location.href = "./EMP_index.html";
+		function(data, textStatus, jqXHR){
+		if(data.status == 'success')
+		{
+        alert(data.tipo_empleado);
+		window.location.href = "./EMP_index.html"; 
+	    }else if(data.status == 'error')
+	    {
+        alert("Error en contraseña");
+		window.location.href = "./login.html"; 
+        }
+			//llamar a otro en success
+			// $.ajax({
+        	//   type: 'GET',
+        	//   url: url,
+        	//   data: data1, //pass data1 to second request
+        	//   success: successHandler, // handler if second request succeeds 
+        	//   dataType: dataType
+   			//   });
+			// window.location.href = "./EMP_index.html"; //cuando la contraseña es incorrecta, debería fallar
+
 		},
 		error: function(jqXHR, textStatus, errorThrown){
 			alert(jqXHR.responseText + "\n" + textStatus + "\n" + errorThrown);
 			
 		}
-      //  async: true
+
     });
 	
 
