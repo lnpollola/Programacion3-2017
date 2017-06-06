@@ -56,6 +56,11 @@ $app->get('/traerunVehiculo/[{id}]', function ($request, $response, $args) {
           $uno = Vehiculo::TraerUnVehiculo($args['id']);
           return $response->withJson($uno);
         });
+  
+$app->get('/vehiculoEstacionado/[{id}]', function ($request, $response, $args) {
+          $uno = Vehiculo::TraerUnVehiculoOperaciones($args['id']);
+          return $response->withJson($uno);
+        });
 
 // $app->get('/traerunVehiculo', function ($request, $response) {
           

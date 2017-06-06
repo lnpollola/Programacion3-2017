@@ -59,6 +59,11 @@ function ValidarUsuario()
 				alert("Error en contraseña");
 				window.location.href = "./login.html"; 
 			}
+			else if(data.validacion == 'errorus')
+			{
+				alert("Error en el usuario");
+				window.location.href = "./login.html"; 
+			}
 		},
 		error: function(jqXHR, textStatus, errorThrown){
 			alert(jqXHR.responseText + "\n" + textStatus + "\n" + errorThrown);
@@ -102,7 +107,38 @@ function AccionesIngreso ()
 }
 
 //<----------------------------------------VEHICULO------------------------>
+function VehiculoEstacionado()
+{
+	var patente = $("#patenteid").val();
+    var paginaSlim = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/traerunVehiculo/";
+	var paginaEstacionado = paginaSlim.concat(patente);
+	var succeed = false;
+	
+	$.ajax({
+		async: false,
+        type: 'GET',
+        url: paginaEstacionado,
+		dataType:"json",
+        data: {
+			patente : patente
+		},
 
+		success:
+		function(data, textStatus, jqXHR)
+		{
+			if (data == "SIN OPERACIONES")
+			{
+				succeed = false;
+			}
+			else 
+			{
+				succeed = true;
+			}
+		},
+
+	});
+	return succeed;
+}
 
 function VehiculoExiste()
 {
@@ -137,38 +173,53 @@ function VehiculoExiste()
 	return succeed;
 }
 
-function AccionesIngresoVehic()
+//OPREACIONES
+//SALIDA DEL VEHICULO
+function AccionesSalidaVehic()
 {
-	alert(VehiculoExiste());
-	// VehiculoEstacionado();
-	// IngresoVehiculo();
+	if( VehiculoExiste()) //Verifico si existe el vehículo
+	{
+		 if(VehiculoEstacionado())
+		 {
+			alert("estacionado");
+		 } 
+		 else
+		 {
+			 alert ("no estacionado");
+		 }
+	}
+	else 
+	{
+		alert ("no existe");
+	}
 }
 
-// function IngresoVehiculo()}
-// {
-// 	var patente = $("#patente1").val();
-// 	var color = $("#color1").val();
-// 	var marca = $("#marca1").val();
+//INGRESO DEL VEHICULO
+function IngresoVehiculo()
+{
+	var patente = $("#patente1").val();
+	var color = $("#color1").val();
+	var marca = $("#marca1").val();
 	
-//     var paginaLogin = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/loginbd/";
-// 	var paginaFinal = paginaLogin.concat(usuarioid);
+    var paginaLogin = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/loginbd/";
+	var paginaFinal = paginaLogin.concat(usuarioid);
 
-// 	var usuarioLogin = {};
-// 	usuarioLogin.usuarionombre = usuarioid;
+	var usuarioLogin = {};
+	usuarioLogin.usuarionombre = usuarioid;
 
-// 	$.ajax({
-//         type: 'GET',
-//         url: paginaFinal,
-//         dataType: "json",
-//         data: {
-// 			usuarioLogin : usuarioLogin
-// 		},
+	$.ajax({
+        type: 'GET',
+        url: paginaFinal,
+        dataType: "json",
+        data: {
+			usuarioLogin : usuarioLogin
+		},
 
-// 		success:
-// 		function(data, textStatus, jqXHR)
-// 		{
-// 		}
+		success:
+		function(data, textStatus, jqXHR)
+		{
+		}
 
-// 	});
-// }
+	});
+}
 

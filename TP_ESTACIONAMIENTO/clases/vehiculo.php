@@ -121,6 +121,34 @@ class Vehiculo
 		return $uno;
     }
 
+	public static function TraerUnVehiculoOperaciones($aux)
+    {
+        $objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
+        $consulta = 
+			$objetoAcceso->RetornarConsulta
+				('SELECT 
+					`ID_OPERACION`, 
+					`ID_COCHERA`,  
+					`HORA_INGRESO`, 
+					`HORA_SALIDA`, 
+					`CANT_HORAS`, 
+					`ID_TARIFA`, 
+					`IMPORTE` 
+				FROM vehiculos AS v 
+				INNER JOIN operaciones AS op 
+				WHERE v.ID_VEHICULO=op.ID_VEHICULO
+				AND   v.PATENTE= :patente');
+        $consulta->bindParam("patente", $aux);
+        $consulta->execute();
+        $uno = $consulta->fetchAll();
+         if($uno == NULL)
+          {
+			  $uno = "SIN OPERACIONES";
+              return $uno;
+          }
+		return $uno;
+    }
+
 	public static function IngresoVehiculo ($patente,$color,$marca)
 	{
 			$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();

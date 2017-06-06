@@ -146,10 +146,11 @@ class Usuario
         
             $consulta->execute();    
             $uno= $consulta->fetchAll();
+
             if($uno == NULL)
             {
-                $rta= "El usuario no existe";
-            }
+				$response_array['validacion']= 'errorus';
+			}
             else if($uno == TRUE )
             {
                 $objetoAcceso2 = AccesoDatos::DameUnObjetoAcceso();
@@ -181,7 +182,7 @@ class Usuario
 			
     		$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
             $consulta = $objetoAcceso->RetornarConsulta('SELECT tipo FROM usuarios WHERE nombre=:nombre');
-            $consulta->bindParam("nombre",$nombre);
+			$consulta->bindParam("nombre",$nombre);
             $consulta->execute();
             $dos= $consulta->fetchObject("Usuario");
 			return $response_array['tipo_empleado']= $dos->tipo;
