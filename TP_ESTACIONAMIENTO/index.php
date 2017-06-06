@@ -23,10 +23,17 @@ $app->get('/validarusuario', function ($request, $response) {
           return $response->withJson($rta);
         });
       
-$app->get('/tipoempleado', function ($request, $response, $args) {
+$app->get('/tipoempleado', function ($request, $response) {
          
          
           $obj = isset($_GET['usuarioTipo']) ? json_decode(json_encode($_GET['usuarioTipo'])) : NULL;
+          $rta = Usuario::ValidarTipoEmp($obj->usuarionombre);
+          return $response->withJson($rta);
+        });
+
+$app->get('/tipoempleado/[{id}]', function ($request, $response, $args) {
+         
+          $nombre = $args["id"];
           $rta = Usuario::ValidarTipoEmp($obj->usuarionombre);
           return $response->withJson($rta);
         });
