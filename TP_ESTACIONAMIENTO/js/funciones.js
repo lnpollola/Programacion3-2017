@@ -1,3 +1,5 @@
+//<----------------------------------------USUARIO------------------------>
+//VALIDO USUARIO Y PASSWORDS
 function ValidarUsuario()
 {
     var paginaValid = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/validarusuario";
@@ -66,12 +68,13 @@ function ValidarUsuario()
 
 }
 
+//INSERTO EN LOS LOGS
 function LoginBD()
 {
 	var usuarioid = $("#usuarioid").val();
     var paginaLogin = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/loginbd/";
 	var paginaFinal = paginaLogin.concat(usuarioid);
-	
+
 	var usuarioLogin = {};
 	usuarioLogin.usuarionombre = usuarioid;
 
@@ -91,9 +94,54 @@ function LoginBD()
 	});
 }
 
+//ACCIONES - LOGIN DE USUARIO
 function AccionesIngreso ()
 {
 	ValidarUsuario();
 	LoginBD();
-	
 }
+
+//<----------------------------------------VEHICULO------------------------>
+// function VehiculoExiste()
+// {
+// 	var patente = $("#patente1").val();
+// 	vat paginaExiste = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/loginbd/";
+
+// }
+
+
+
+// function IngresoVehiculo()}
+// {
+// 	var patente = $("#patente1").val();
+// 	var color = $("#color1").val();
+// 	var marca = $("#marca1").val();
+	
+//     var paginaLogin = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/loginbd/";
+// 	var paginaFinal = paginaLogin.concat(usuarioid);
+
+// 	var usuarioLogin = {};
+// 	usuarioLogin.usuarionombre = usuarioid;
+
+// 	$.ajax({
+//         type: 'GET',
+//         url: paginaFinal,
+//         dataType: "json",
+//         data: {
+// 			usuarioLogin : usuarioLogin
+// 		},
+
+// 		success:
+// 		function(data, textStatus, jqXHR)
+// 		{
+// 		}
+
+// 	});
+// }
+
+// public function AccionesIngresoVehic()
+// {
+// 	VehiculoExiste();
+// 	VehiculoEstacionado();
+// 	IngresoVehiculo();
+// }

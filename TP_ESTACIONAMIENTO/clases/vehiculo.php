@@ -1,6 +1,5 @@
 <?php
-//Incluimos la clase AccesoDatos.php que no estaba. La copiamos desde la Carpeta Clases de Clase06
-require "AccesoDatos.php";
+
 class Vehiculo
 {
 //--------------------------------------------------------------------------------//
@@ -8,7 +7,7 @@ class Vehiculo
 	private $Marca;
  	private $Patente;
   	private $Color;
-	private $Estado
+	private $Estado;
 //--------------------------------------------------------------------------------//
 //--GETTERS Y SETTERS
 	public function GetMarca()
@@ -94,10 +93,11 @@ class Vehiculo
 
 	public static function TraerTodosLosVehiculos()
 	{
+		echo "estoy aca";
 		$arrayRetorno = array();
 		//Este Metodo esta creado por nosotros este.
 		$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
-		$consulta = $objetoAcceso->RetornarConsulta('SELECT patente , marca, color, estado  FROM `vehiculos`');
+		$consulta = $objetoAcceso->RetornarConsulta('SELECT *  FROM `vehiculos`');
 		$consulta->Execute();
 		while ($fila = $consulta->fetchObject("Vehiculo")) //devuelve true o false depende si encuentra o no el objeto. 
 		 {
@@ -110,16 +110,33 @@ class Vehiculo
 	public static function TraerUnVehiculo($aux)
     {
         $objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
-        $consulta = $objetoAcceso->RetornarConsulta('SELECT patente , marca, color, estado FROM usuario WHERE patente=:patente');
+        $consulta = $objetoAcceso->RetornarConsulta('SELECT patente , marca, color, estado FROM vehiculos WHERE patente=:patente');
         $consulta->bindParam("patente", $aux);
         $consulta->execute();
         $uno = $consulta->fetchAll();
          if($uno == NULL)
           {
-              $uno="no existe";
-              return $uno;
+            //   $uno="no existe";
+            //   return $uno;
+			return false;
           }
-        return $uno;
+        // return $uno;
+		return true;
     }
+
+	public static function IngresoVehiculo ($patente,$color,$marca)
+	{
+			$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
+
+			//Verificar si existe
+			//Ver que este estacionado (Hora salida)
+			//Traer datos del vehiculo, con hora salida dsp del insert
+
+	  		$consulta = $objetoAcceso->RetornarConsulta('INSERT INTO logs(`NOMBRE_EMPLEADO`,`FECHA`,`HORA_ENTRADA`)  VALUES (:nombre,:hoy,NOW())');
+            $consulta->bindParam("nombre",$nombre);
+			$consulta->bindParam("hoy",$hoy);
+            $consulta->execute();
+		   return true;
+	}
 //--------------------------------------------------------------------------------//
 }

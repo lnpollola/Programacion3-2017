@@ -1,6 +1,6 @@
 <?php
 //Incluimos la clase AccesoDatos.php que no estaba. La copiamos desde la Carpeta Clases de Clase06
-require "/clases/AccesoDatos.php";
+
 class Usuario
 {
 //--------------------------------------------------------------------------------//
@@ -200,6 +200,8 @@ class Usuario
             $consulta->execute();
 		   return true;
 	}
+
+	
 	
 
 //--------------------------------------------------------------------------------//
