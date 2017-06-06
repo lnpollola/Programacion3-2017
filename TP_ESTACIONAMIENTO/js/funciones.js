@@ -102,16 +102,18 @@ function AccionesIngreso ()
 }
 
 //<----------------------------------------VEHICULO------------------------>
+
+
 function VehiculoExiste()
 {
 	var patente = $("#patenteid").val();
     var paginaExiste = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/traerunVehiculo/";
 	var paginaVehic = paginaExiste.concat(patente);
 
-	alert("estoy dentro de vehiculo ");
-	alert (paginaVehic);
+	  var succeed = false;
 	
 	$.ajax({
+		async: false,
         type: 'GET',
         url: paginaVehic,
         data: {
@@ -121,31 +123,23 @@ function VehiculoExiste()
 		success:
 		function(data, textStatus, jqXHR)
 		{
-			alert("estoy en success");
-
 			if (data == "NO")
 			{
-				alert("no existe el auto");
+				succeed = false;
 			}
 			else 
 			{
-				alert ("existe el auto");
+				succeed = true;
 			}
 		},
-		error:
-		function (data)
-		{
 
-		}
-
-	});
-
-	alert ("estoy al final del get");
+		});
+	return succeed;
 }
 
 function AccionesIngresoVehic()
 {
-	VehiculoExiste();
+	alert(VehiculoExiste());
 	// VehiculoEstacionado();
 	// IngresoVehiculo();
 }
