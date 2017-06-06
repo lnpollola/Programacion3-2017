@@ -125,7 +125,6 @@ class Vehiculo
 	{
 			$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
 
-			//Verificar si existe
 			//Ver que este estacionado (Hora salida)
 			//Traer datos del vehiculo, con hora salida dsp del insert
 
