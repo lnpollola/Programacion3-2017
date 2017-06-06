@@ -66,7 +66,7 @@ $app->get('/vehiculoEstacionado/[{id}]', function ($request, $response, $args) {
   
 $app->get('/cocheravacia', function ($request, $response) {
           $cocheravacia = Cochera::TraerUnaCocheraVacia();
-          return  $cocheravacia;
+          return  $response->withJson($cocheravacia);
         });
 
 // $app->get('/traerunVehiculo', function ($request, $response) {

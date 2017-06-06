@@ -185,6 +185,7 @@ function TraerCocheraVacia()
 		async: false,
         type: 'GET',
         url: paginaCocheraVacia,
+		// dataType:"json",
         data: {
 			auto : auto
 		},
@@ -192,13 +193,14 @@ function TraerCocheraVacia()
 		success:
 		function(data, textStatus, jqXHR)
 		{
+			
 			if (data == "NO HAY")
 			{
 				succeed = false;
 			}
 			else 
 			{
-				succeed = true;
+				succeed = JSON.stringify(data[0].nro_cochera);
 			}
 		},
 
@@ -233,7 +235,10 @@ function AccionesSalidaVehic()
 function AccionesIngresoVehic ()
 {
 	//TRAER COCHERA VACIA
-	alert(TraerCocheraVacia());
+	$nro_cochera= TraerCocheraVacia();
+	
+	alert($nro_cochera);
+
 	// alert(TraerCocheraVacia());
 	//MOSTRAR HORA ENTRADA
 	//INSERTAR EN LA BASE
