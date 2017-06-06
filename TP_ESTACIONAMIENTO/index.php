@@ -3,6 +3,7 @@ require "/clases/AccesoDatos.php";
 require '/vendor/autoload.php';
 require '/clases/usuario.php';
 require '/clases/vehiculo.php';
+require '/clases/cochera.php';
 
 $app = new \Slim\App;
     
@@ -60,6 +61,12 @@ $app->get('/traerunVehiculo/[{id}]', function ($request, $response, $args) {
 $app->get('/vehiculoEstacionado/[{id}]', function ($request, $response, $args) {
           $uno = Vehiculo::TraerUnVehiculoOperaciones($args['id']);
           return $response->withJson($uno);
+        });
+
+  
+$app->get('/cocheravacia', function ($request, $response) {
+          $cocheravacia = Cochera::TraerUnaCocheraVacia();
+          return  $cocheravacia;
         });
 
 // $app->get('/traerunVehiculo', function ($request, $response) {

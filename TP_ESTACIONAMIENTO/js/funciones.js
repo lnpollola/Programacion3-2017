@@ -172,8 +172,41 @@ function VehiculoExiste()
 		});
 	return succeed;
 }
+//<----------------------------------------COCHERA------------------------>
+function TraerCocheraVacia()
+{
+	var patente = $("#patenteid").val();
+    var paginaCocheraVacia = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/cocheravacia";
 
-//OPREACIONES
+	var auto = {};
+	auto.patente = patente;
+
+	$.ajax({
+		async: false,
+        type: 'GET',
+        url: paginaCocheraVacia,
+        data: {
+			auto : auto
+		},
+
+		success:
+		function(data, textStatus, jqXHR)
+		{
+			if (data == "NO HAY")
+			{
+				succeed = false;
+			}
+			else 
+			{
+				succeed = true;
+			}
+		},
+
+		});
+	return succeed;
+}
+
+////////////////////////////////////////////OPERACIONES////////////////////////
 //SALIDA DEL VEHICULO
 function AccionesSalidaVehic()
 {
@@ -194,32 +227,27 @@ function AccionesSalidaVehic()
 	}
 }
 
-//INGRESO DEL VEHICULO
-function IngresoVehiculo()
+
+
+// //INGRESO DEL VEHICULO
+function AccionesIngresoVehic ()
 {
-	var patente = $("#patente1").val();
-	var color = $("#color1").val();
-	var marca = $("#marca1").val();
-	
-    var paginaLogin = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/loginbd/";
-	var paginaFinal = paginaLogin.concat(usuarioid);
-
-	var usuarioLogin = {};
-	usuarioLogin.usuarionombre = usuarioid;
-
-	$.ajax({
-        type: 'GET',
-        url: paginaFinal,
-        dataType: "json",
-        data: {
-			usuarioLogin : usuarioLogin
-		},
-
-		success:
-		function(data, textStatus, jqXHR)
-		{
-		}
-
-	});
+	//TRAER COCHERA VACIA
+	alert(TraerCocheraVacia());
+	// alert(TraerCocheraVacia());
+	//MOSTRAR HORA ENTRADA
+	//INSERTAR EN LA BASE
+	// alert(TraerCocheraVacia());
+	// if(TraerCocheraVacia())
+	// {
+	// 	alert("Cochera Vacia");
+	// }
+	// else 
+	// {
+	// 	alert("sin cochera");
+	// }
 }
+
+
+
 

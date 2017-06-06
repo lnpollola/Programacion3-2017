@@ -1,6 +1,5 @@
 <?php
 //Incluimos la clase AccesoDatos.php que no estaba. La copiamos desde la Carpeta Clases de Clase06
-require "AccesoDatos.php";
 class Cochera
 {
 //--------------------------------------------------------------------------------//
@@ -126,16 +125,17 @@ class Cochera
 		 return $arrayRetorno;
 	}
 
-	public static function TraerUnaCochera($aux)
+	public static function TraerUnaCocheraVacia()
     {
         $objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
-        $consulta = $objetoAcceso->RetornarConsulta('SELECT nro_cochera, Reservado, Estado_Actual, habilitada, tipo FROM cocheras WHERE nro_cochera=:nrocochera');
-        $consulta->bindParam("nrocochera", $aux);
-        $consulta->execute();
+        $consulta = $objetoAcceso->RetornarConsulta('SELECT nro_cochera FROM cocheras WHERE estado_actual=:estado ');
+        $estado = 'Libre';
+		$consulta->bindParam("estado",$estado );
+		$consulta->execute();
         $uno = $consulta->fetchAll();
          if($uno == NULL)
           {
-              $uno="no existe";
+              $uno="NO HAY";
               return $uno;
           }
         return $uno;
