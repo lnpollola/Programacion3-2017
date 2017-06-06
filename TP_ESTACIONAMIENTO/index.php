@@ -41,7 +41,6 @@ $app->get('/tipoempleado/[{id}]', function ($request, $response, $args) {
 $app->get('/loginbd/[{id}]', function ($request, $response, $args) {
          
           $nombre = $args["id"];
-          //  $obj = isset($_GET['usuarioLogin']) ? json_decode(json_encode($_GET['usuarioLogin'])) : NULL;
           $rta = Usuario::InsertarBD($nombre);
           return $response->withJson($rta);
         });
