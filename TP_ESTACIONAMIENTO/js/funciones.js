@@ -172,6 +172,37 @@ function VehiculoExiste()
 		});
 	return succeed;
 }
+
+function InsertarAutoBD($nro_cochera,$hora,$patente)
+{
+	var paginaOperacion = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/insertarOperacion";
+	var datosOperacion = {};
+
+	datosOperacion.nro_cochera = $nro_cochera;
+	datosOperacion.hora = $hora;
+	datosOperacion.patente = $patente; 
+
+	$.ajax({
+	type: 'GET',
+	url: paginaOperacion,
+	data: {
+	datosOperacion : datosOperacion
+	},
+		success:
+		function(data, textStatus, jqXHR)
+		{	
+			if(data=="ADMIN")
+			{
+				window.location.href = "./ADM_index.html"; 
+			}
+			else if (data == "EMPLEADO")
+			{
+				window.location.href = "./EMP_index.html"; 
+			}
+		}
+		});
+
+}
 //<----------------------------------------COCHERA------------------------>
 function TraerCocheraVacia()
 {
@@ -234,23 +265,23 @@ function AccionesSalidaVehic()
 // //INGRESO DEL VEHICULO
 function AccionesIngresoVehic ()
 {
+	var patente = $("#patenteid").val();
+
 	//TRAER COCHERA VACIA
 	$nro_cochera= TraerCocheraVacia();
+	// $hora_entrada = new Date($.now());
+	d = Date().split(" ");
+ 	var hora = d[4]
 	
-	alert($nro_cochera);
+	$hora = hora;
+	nro_cochera = $nro_cochera;
 
-	// alert(TraerCocheraVacia());
-	//MOSTRAR HORA ENTRADA
+	//MOSTRAR HORA ENTRADA Y DATOS
+	 $mensaje = "Cochera Disponible: "+$nro_cochera+" Hora Entrada: "+ $hora;
+	alert($mensaje);
+	
 	//INSERTAR EN LA BASE
-	// alert(TraerCocheraVacia());
-	// if(TraerCocheraVacia())
-	// {
-	// 	alert("Cochera Vacia");
-	// }
-	// else 
-	// {
-	// 	alert("sin cochera");
-	// }
+	InsertarAutoBD(nro_cochera,hora,patente);
 }
 
 

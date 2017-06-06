@@ -149,14 +149,13 @@ class Vehiculo
 		return $uno;
     }
 
-	public static function IngresoVehiculo ($patente,$color,$marca)
+	public static function InsertoOperacion ($patente,$color,$marca)
 	{
 			$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
 
 			//Ver que este estacionado (Hora salida)
 			//Traer datos del vehiculo, con hora salida dsp del insert
-
-	  		$consulta = $objetoAcceso->RetornarConsulta('INSERT INTO logs(`NOMBRE_EMPLEADO`,`FECHA`,`HORA_ENTRADA`)  VALUES (:nombre,:hoy,NOW())');
+	  		$consulta = $objetoAcceso->RetornarConsulta('INSERT INTO operaciones(`NOMBRE_EMPLEADO`,`FECHA`,`HORA_ENTRADA`)  VALUES (:nombre,:hoy,NOW())');
             $consulta->bindParam("nombre",$nombre);
 			$consulta->bindParam("hoy",$hoy);
             $consulta->execute();

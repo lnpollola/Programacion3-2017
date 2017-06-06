@@ -26,8 +26,6 @@ $app->get('/validarusuario', function ($request, $response) {
         });
       
 $app->get('/tipoempleado', function ($request, $response) {
-         
-         
           $obj = isset($_GET['usuarioTipo']) ? json_decode(json_encode($_GET['usuarioTipo'])) : NULL;
           $rta = Usuario::ValidarTipoEmp($obj->usuarionombre);
           return $response->withJson($rta);
@@ -68,6 +66,14 @@ $app->get('/cocheravacia', function ($request, $response) {
           $cocheravacia = Cochera::TraerUnaCocheraVacia();
           return  $response->withJson($cocheravacia);
         });
+
+$app->get('/insertarOperacion', function ($request, $response) {
+          $obj = isset($_GET['datosOperacion']) ? json_decode(json_encode($_GET['datosOperacion'])) : NULL;
+          var_dump($obj);
+          $rta = Vehiculo::InsertoOperacion($obj->nro_cochera, $obj->hora, $obj->patente);
+          return $response->withJson($rta);
+        });
+
 
 // $app->get('/traerunVehiculo', function ($request, $response) {
           
