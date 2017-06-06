@@ -10,7 +10,7 @@
   <style>
   body {
           /*Imagen de fondo:*/
-          background-image: url("https://i2.wp.com/www.roshfrans.com/wp-content/uploads/2016/06/Estacionamiento.png?fit=1400%2C600");
+          /*background-image: url("https://i2.wp.com/www.roshfrans.com/wp-content/uploads/2016/06/Estacionamiento.png?fit=1400%2C600");*/
   } 
   
   </style>
@@ -23,8 +23,6 @@
         <div id="logo_text">
           <!-- class="logo_colour", allows you to change the colour of the text -->
            <h1><a href="..\indexEMP.html">SALIDA de VEHICULO<span class="logo_colour"></span></a></h1>
-          <h2>Alumno: Julian Graziano.</h2>
-          <h2>Curso: ProgramacionIII.</h2>
         </div>
       </div>
       <div id="menubar">
@@ -39,14 +37,7 @@
     </div>
     <div id="site_content">
       <div class="sidebar">
-        <!-- insert your sidebar items here -->      
-        <h3>Links utiles</h3>
-        <ul>
-         <li><a href="https://www.github.com/jngraziano">My Github</a></li>
-          <li><a href="https://www.w3schools.com/">W3school</a></li>
-          <li><a href="http://php.net/">PHP.NET</a></li>
-          <li><a href="http://www.sistemas-utnfra.com.ar/#/home">UTN Fra</a></li>
-        </ul>
+ 
 
       </div>
       <div id="content">
@@ -54,18 +45,23 @@
         <h1>Salida de Vehiculo</h1>
         <p>Esta es la pagina indicar la salida de un vehiculo al sistema.</p><br>
         <!--<p style="color:blue">prueba </p>-->
-     <form id="FormIngreso" method="post" action="administracion.php" >
-    <h3>Salida vehiculo</h3>
+          <form id="FormIngreso" method="post" >
+       <h3>Datos vehiculo</h3>
       
-      <input placeholder="Ingrese Patente" type="text" tabindex="1" name="Nombre1" required autofocus>
-      <br><br>
-      <button name="submit" type="Aceptar1" id="contact-submit" data-submit="...Cargando">Aceptar</button>
-        </ul>
+      <input placeholder="Ingrese Patente" type="text" tabindex="1" id="patenteid" name="patente"  autofocus> 
+       <br><br>
+      <button name="submit" type="Aceptar1" value="validar"  onclick="AccionesEgresoVehic()" >Aceptar</button>
+         </ul>
       </div>
     </div>
     <div id="footer">
       <!--Este template fue adquirido en: Copyright &copy; black_white | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">Free CSS Templates</a>-->
     </div>
   </div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+   
+    <script src="../js/funciones.js"></script>
+    <script src="../js/index.js"></script>
 </body>
 </html>

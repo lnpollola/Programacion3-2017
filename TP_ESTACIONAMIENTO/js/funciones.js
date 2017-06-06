@@ -244,29 +244,7 @@ function TraerCocheraVacia()
 }
 
 ////////////////////////////////////////////OPERACIONES////////////////////////
-//SALIDA DEL VEHICULO
-function AccionesSalidaVehic()
-{
-	if( VehiculoExiste()) //Verifico si existe el vehículo
-	{
-		 if(VehiculoEstacionado())
-		 {
-			alert("estacionado");
-		 } 
-		 else
-		 {
-			 alert ("no estacionado");
-		 }
-	}
-	else 
-	{
-		alert ("no existe");
-	}
-}
-
-
-
-// //INGRESO DEL VEHICULO
+//INGRESO DEL VEHICULO
 function AccionesIngresoVehic ($nombre)
 {
 	var patente = $("#patenteid").val();
@@ -290,9 +268,30 @@ function AccionesIngresoVehic ($nombre)
 	{
 		alert("El vehiculo fue ingresado al  sistema");
 	}
-
 }
+//EGRESO DEL VEHICULO
 
-
+function AccionesEgresoVehic ()
+{
+	var patente = $("#patenteid").val();
+	//VERIFICAR SI ESTA ESTACIONADO
+	if( VehiculoExiste()) //Verifico si existe el vehículo
+	{
+		
+		 if(VehiculoEstacionado())
+		 {
+			alert("estacionado");
+			
+		 } 
+		 else
+		 {
+			 alert ("no estacionado");
+		 }
+	}
+	else 
+	{
+		alert ("no existe");
+	}
+}
 
 
