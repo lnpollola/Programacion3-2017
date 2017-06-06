@@ -114,7 +114,6 @@ function VehiculoExiste()
 	$.ajax({
         type: 'GET',
         url: paginaVehic,
-        dataType: "text",
         data: {
 			patente : patente
 		},
@@ -122,8 +121,16 @@ function VehiculoExiste()
 		success:
 		function(data, textStatus, jqXHR)
 		{
-			alert (data);
 			alert("estoy en success");
+
+			if (data == "NO")
+			{
+				alert("no existe el auto");
+			}
+			else 
+			{
+				alert ("existe el auto");
+			}
 		},
 		error:
 		function (data)

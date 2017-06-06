@@ -115,13 +115,9 @@ class Vehiculo
         $uno = $consulta->fetchAll();
          if($uno == NULL)
           {
-			$uno="no existe";
+			  $uno='NO';
               return $uno;
-            //   $uno="no existe";
-            //   return $uno;
-			// return false;
           }
-		// return true;
 		return $uno;
     }
 
