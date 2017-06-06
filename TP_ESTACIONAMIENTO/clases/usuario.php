@@ -146,8 +146,6 @@ class Usuario
         
             $consulta->execute();    
             $uno= $consulta->fetchAll();
-			
-			var_dump($consulta);
             if($uno == NULL)
             {
                 $rta= "El usuario no existe";

@@ -38,6 +38,12 @@ $app->get('/tipoempleado/[{id}]', function ($request, $response, $args) {
           return $response->withJson($rta);
         });
 
+$app->get('/LoginBD', function ($request, $response) {
+         
+          $nombre = $args["id"];
+          $rta = Usuario::ValidarTipoEmp($obj->usuarionombre);
+          return $response->withJson($rta);
+        });
 
 
 
