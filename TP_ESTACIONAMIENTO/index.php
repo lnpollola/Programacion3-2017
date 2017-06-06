@@ -69,8 +69,7 @@ $app->get('/cocheravacia', function ($request, $response) {
 
 $app->get('/insertarOperacion', function ($request, $response) {
           $obj = isset($_GET['datosOperacion']) ? json_decode(json_encode($_GET['datosOperacion'])) : NULL;
-          var_dump($obj);
-          $rta = Vehiculo::InsertoOperacion($obj->nro_cochera, $obj->hora, $obj->patente);
+          $rta = Vehiculo::InsertoOperacion($obj->nrocochera, $obj->hora, $obj->patente, $obj->nombre);
           return $response->withJson($rta);
         });
 

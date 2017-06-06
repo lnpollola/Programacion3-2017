@@ -149,17 +149,21 @@ class Vehiculo
 		return $uno;
     }
 
-	public static function InsertoOperacion ($patente,$color,$marca)
+	public static function InsertoOperacion ($nro_cochera,$hora,$patente,$nombre)
 	{
 			$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
-
 			//Ver que este estacionado (Hora salida)
 			//Traer datos del vehiculo, con hora salida dsp del insert
-	  		$consulta = $objetoAcceso->RetornarConsulta('INSERT INTO operaciones(`NOMBRE_EMPLEADO`,`FECHA`,`HORA_ENTRADA`)  VALUES (:nombre,:hoy,NOW())');
-            $consulta->bindParam("nombre",$nombre);
-			$consulta->bindParam("hoy",$hoy);
+	  		$consulta = $objetoAcceso->RetornarConsulta('INSERT INTO operaciones(`ID_COCHERA`,`PATENTE`,`ID_EMPLEADO`,`HORA_INGRESO`)  VALUES (:idcochera,:patente,:nombre,:hora)');
+            $consulta->bindParam("idcochera",$nro_cochera);
+			$consulta->bindParam("patente",$patente);
+			$consulta->bindParam("nombre",$nombre);
+			$consulta->bindParam("hora",$hora);
             $consulta->execute();
-		   return true;
+			$obj = $consulta->fetchAll();
+			
+			return true;
+		   
 	}
 //--------------------------------------------------------------------------------//
 }

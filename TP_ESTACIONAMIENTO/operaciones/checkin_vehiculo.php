@@ -22,13 +22,13 @@
       <div id="logo">
         <div id="logo_text">
           <!-- class="logo_colour", allows you to change the colour of the text -->
-           <h1><a href="..\EMP_index.html">INGRESO de VEHICULO<span class="logo_colour"></span></a></h1>
+           <h1><a href="..\EMP_index.php">INGRESO de VEHICULO<span class="logo_colour"></span></a></h1>
         </div>
       </div>
       <div id="menubar">
         <ul id="menu">
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
-          <li class="selected"><a href="..\EMP_index.html">Home</a></li>
+          <li class="selected"><a href="..\EMP_index.php">Home</a></li>
          <li><a href="checkin_vehiculo.php">INGRESO Vehiculo</a></li>
           <li><a href="checkout_vehiculo.php">Salida Vehiculo</a></li>
           <li><a href="..\login.html">LogOFF</a></li>
@@ -48,7 +48,7 @@
       <input placeholder="Ingrese Color" type="text" tabindex="2" id="colorid" name="color" autofocus>
       <input placeholder="Ingrese Marca" type="text" tabindex="3" id="marcaid" name="marca"  autofocus>
       <br><br>
-      <button name="submit" type="Aceptar1" value="validar"  onclick=AccionesIngresoVehic() >Aceptar</button>
+      <button name="submit" type="Aceptar1" value="validar"  onclick="AccionesIngresoVehic('<?php echo $_GET['nombre']; ?>')" >Aceptar</button>
      
         </ul>
       </div>

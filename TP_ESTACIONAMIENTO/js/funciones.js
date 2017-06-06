@@ -47,7 +47,8 @@ function ValidarUsuario()
 							}
 							else if (data == "EMPLEADO")
 							{
-								window.location.href = "./EMP_index.html"; 
+								
+								window.location.href = "./EMP_index.php?name=" + usuarioTipo.usuarionombre;  
 							}
 						}
 				});
@@ -173,14 +174,17 @@ function VehiculoExiste()
 	return succeed;
 }
 
-function InsertarAutoBD($nro_cochera,$hora,$patente)
+function InsertarAutoBD($nro_cochera,$hora,$patente,$nombre)
 {
 	var paginaOperacion = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/insertarOperacion";
 	var datosOperacion = {};
 
-	datosOperacion.nro_cochera = $nro_cochera;
+	datosOperacion.nrocochera = $nro_cochera;
 	datosOperacion.hora = $hora;
 	datosOperacion.patente = $patente; 
+	datosOperacion.nombre = $nombre; 
+
+	var succeed = false;
 
 	$.ajax({
 	type: 'GET',
@@ -191,17 +195,17 @@ function InsertarAutoBD($nro_cochera,$hora,$patente)
 		success:
 		function(data, textStatus, jqXHR)
 		{	
-			if(data=="ADMIN")
-			{
-				window.location.href = "./ADM_index.html"; 
-			}
-			else if (data == "EMPLEADO")
-			{
-				window.location.href = "./EMP_index.html"; 
-			}
+			// if (data == true)
+			// {
+			// 	succeed = true;
+			// }
+			// else 
+			// {
+			// 	succeed = false;
+			// }
 		}
 		});
-
+	return true;
 }
 //<----------------------------------------COCHERA------------------------>
 function TraerCocheraVacia()
@@ -263,25 +267,30 @@ function AccionesSalidaVehic()
 
 
 // //INGRESO DEL VEHICULO
-function AccionesIngresoVehic ()
+function AccionesIngresoVehic ($nombre)
 {
 	var patente = $("#patenteid").val();
-
 	//TRAER COCHERA VACIA
 	$nro_cochera= TraerCocheraVacia();
 	// $hora_entrada = new Date($.now());
 	d = Date().split(" ");
  	var hora = d[4]
 	
+	//Conversion de variables
 	$hora = hora;
 	nro_cochera = $nro_cochera;
+	nombre = $nombre;
 
 	//MOSTRAR HORA ENTRADA Y DATOS
 	 $mensaje = "Cochera Disponible: "+$nro_cochera+" Hora Entrada: "+ $hora;
 	alert($mensaje);
 	
 	//INSERTAR EN LA BASE
-	InsertarAutoBD(nro_cochera,hora,patente);
+	if(InsertarAutoBD(nro_cochera,hora,patente,nombre))
+	{
+		alert("El vehiculo fue ingresado al  sistema");
+	}
+
 }
 
 

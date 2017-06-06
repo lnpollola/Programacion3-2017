@@ -28,9 +28,10 @@
         <ul id="menu">
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
           <li class="selected"><a href="./EMP_index.html">Home</a></li>
-         <li><a href="operaciones/checkin_vehiculo.php">Ingreso Vehiculo</a></li>
-          <li><a href="operaciones/checkout_vehiculo.php">Salida Vehiculo</a></li>
+         <li><a href="operaciones/checkin_vehiculo.php?nombre=<?php echo $_GET['name']; ?>">Ingreso Vehiculo</a></li>
+          <li><a href="operaciones/checkout_vehiculo.php?nombre=<?php echo $_GET['name']; ?>">Salida Vehiculo</a></li>
           <li><a href="login.html">LogOFF</a></li>
+         
         </ul>
       </div>
     </div>
@@ -46,7 +47,6 @@
     <div id="footer">
       <!--Este template fue adquirido en: Copyright &copy; black_white | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">Free CSS Templates</a>-->
     </div>
-  </div>
-  
+  </div> 
 </body>
 </html>
