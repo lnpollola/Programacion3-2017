@@ -2,7 +2,7 @@
 require "/clases/AccesoDatos.php";
 require '/vendor/autoload.php';
 require '/clases/usuario.php';
-// require '/clases/vehiculo.php';
+require '/clases/vehiculo.php';
 
 $app = new \Slim\App;
     
@@ -46,22 +46,16 @@ $app->get('/loginbd/[{id}]', function ($request, $response, $args) {
           return $response->withJson($rta);
         });
 //<---------------------------------VEHICULOS-------------------------------------->
-// $app->get('/traertodosVehiculos', function ($request, $response) {
-//     $Vehiculos = Vehiculo::TraerTodosLosVehiculos();
-//     return $response->withJson($Vehiculos);
-// });
+$app->get('/traertodosVehiculos', function ($request, $response) {
+    $Vehiculos = Vehiculo::TraerTodosLosVehiculos();
+    return $response->withJson($Vehiculos);
+});
+  
+$app->get('/traerunVehiculo/[{id}]', function ($request, $response, $args) {
+          $uno = Vehiculo::TraerUnVehiculo($args['id']);
+          return $response->withJson($uno);
+        });
 
-// $app->get('/traerunVehiculo/[{id}]', function ($request, $response, $args) {
-//           $uno = Vehiculo::TraerUnVehiculo($args['id']);
-//           return $response->withJson($uno);
-//         });
-
-// $app->get('/loginbd/[{id}]', function ($request, $response, $args) {
-         
-//           $nombre = $args["id"];
-//           $rta = Usuario::InsertarBD($nombre);
-//           return $response->withJson($rta);
-//         });
 
 $app->run();
 
