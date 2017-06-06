@@ -22,6 +22,14 @@ $app->get('/validarusuario', function ($request, $response) {
           $rta = Usuario::ValidarUsuario($obj->usuarioid,$obj->passwordid);
           return $response->withJson($rta);
         });
+      
+$app->get('/tipoempleado', function ($request, $response, $args) {
+         
+         
+          $obj = isset($_GET['usuarioTipo']) ? json_decode(json_encode($_GET['usuarioTipo'])) : NULL;
+          $rta = Usuario::ValidarTipoEmp($obj->usuarionombre);
+          return $response->withJson($rta);
+        });
 
 
 

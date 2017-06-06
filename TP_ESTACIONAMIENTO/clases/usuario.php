@@ -163,12 +163,13 @@ class Usuario
                 if($dos == TRUE)
                 {
                     // $rta= "Bienvenido/a $nombre";
-					$response_array['status'] = 'success'; 
-                }
+					$response_array['validacion'] = 'ok';
+					$response_array['nombre'] = $nombre; 
+	                }
                 else
                 {
                     // $rta= "Contraseña incorrecta";
-					$response_array['status'] = 'error';  
+					$response_array['validacion'] = 'error';  
                 }
             }
         // return $rta;
@@ -178,12 +179,13 @@ class Usuario
 	//INSERTAR LOGS
 	public static function ValidarTipoEmp ($nombre)
 	{
-		
+			
     		$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
-            $consulta = $objetoAcceso->RetornarConsulta('SELECT `password` FROM usuarios WHERE nombre=:nombre');
+            $consulta = $objetoAcceso->RetornarConsulta('SELECT tipo FROM usuarios WHERE nombre=:nombre');
             $consulta->bindParam("nombre",$nombre);
             $consulta->execute();
-            $dos= $consulta->fetchAll();
+            $dos= $consulta->fetchObject("Usuario");
+			return $response_array['tipo_empleado']= $dos->tipo;
 	}
 	
 
