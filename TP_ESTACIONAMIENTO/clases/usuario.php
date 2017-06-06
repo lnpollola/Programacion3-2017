@@ -186,6 +186,20 @@ class Usuario
             $dos= $consulta->fetchObject("Usuario");
 			return $response_array['tipo_empleado']= $dos->tipo;
 	}
+
+	public static function InsertarBD ($nombre)
+	{
+			$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
+
+            //Inserto en los LOGS generales
+			$hoy = date('Y-m-d');
+				
+	  		$consulta = $objetoAcceso->RetornarConsulta('INSERT INTO logs(`NOMBRE_EMPLEADO`,`FECHA`,`HORA_ENTRADA`)  VALUES (:nombre,:hoy,NOW())');
+            $consulta->bindParam("nombre",$nombre);
+			$consulta->bindParam("hoy",$hoy);
+            $consulta->execute();
+		   return true;
+	}
 	
 
 //--------------------------------------------------------------------------------//

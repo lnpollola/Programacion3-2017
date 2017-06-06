@@ -41,15 +41,15 @@ function ValidarUsuario()
 						{	
 							if(data=="ADMIN")
 							{
-								window.location.href = "./ADM_index.html"; 
+								alert(data);
+								// window.location.href = "./ADM_index.html"; 
 							}
 							else if (data == "EMPLEADO")
 							{
-								window.location.href = "./EMP_index.html"; 
+								alert(data);
+								// window.location.href = "./EMP_index.html"; 
 							}
 						}
-					
-			
 				});
 
 
@@ -64,9 +64,7 @@ function ValidarUsuario()
 			alert(jqXHR.responseText + "\n" + textStatus + "\n" + errorThrown);
 			
 		}
-
     });
-	
 
 }
 
@@ -75,19 +73,16 @@ function LoginBD()
     var paginaLogin = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/LoginBD";
 
 	var usuarioid = $("#usuarioid").val();
-	var passwordid = $("#passwordid").val();
 	
-	var usuario = {};
-
-	usuario.usuarioid = usuarioid;
-	usuario.passwordid = passwordid;
+	var usuarioLogin = {};
+	usuarioLogin.usuarionombre = usuarioid;
 
 	$.ajax({
         type: 'GET',
-        url: paginaValid,
+        url: paginaLogin,
         dataType: "json",
         data: {
-			usuario : usuario
+			usuarioLogin : usuarioLogin
 		},
 
 		success:
@@ -101,5 +96,6 @@ function LoginBD()
 function AccionesIngreso ()
 {
 	ValidarUsuario();
-
+	LoginBD();
+	
 }

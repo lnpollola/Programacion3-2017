@@ -38,13 +38,13 @@ $app->get('/tipoempleado/[{id}]', function ($request, $response, $args) {
           return $response->withJson($rta);
         });
 
-$app->get('/LoginBD', function ($request, $response) {
+$app->get('/loginbd/[{id}]', function ($request, $response, $args) {
          
           $nombre = $args["id"];
-          $rta = Usuario::ValidarTipoEmp($obj->usuarionombre);
+          //  $obj = isset($_GET['usuarioLogin']) ? json_decode(json_encode($_GET['usuarioLogin'])) : NULL;
+          $rta = Usuario::InsertarBD($nombre);
           return $response->withJson($rta);
         });
-
 
 
 $app->run();
