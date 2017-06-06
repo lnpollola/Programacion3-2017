@@ -41,14 +41,14 @@
         <h1>Entrada de Vehiculo</h1>
         <p>Esta es la pagina para realizar la entrada de un vehiculo al sistema.</p><br>
         <!--<p style="color:blue">prueba </p>-->
-     <form id="FormIngreso" method="post" action="administracion.php" >
+     <form id="FormIngreso" method="post" >
     <h3>Datos vehiculo</h3>
       
-      <input placeholder="Ingrese Patente" type="text" tabindex="1" name="patente1" required autofocus>
-      <input placeholder="Ingrese Color" type="text" tabindex="2" name="color1" required autofocus>
-      <input placeholder="Ingrese Marca" type="text" tabindex="3" name="marca1" required autofocus>
+      <input placeholder="Ingrese Patente" type="text" tabindex="1" id="patenteid" name="patente"  autofocus> 
+      <input placeholder="Ingrese Color" type="text" tabindex="2" id="colorid" name="color" autofocus>
+      <input placeholder="Ingrese Marca" type="text" tabindex="3" id="marcaid" name="marca"  autofocus>
       <br><br>
-      <button name="submit" type="Aceptar1" onclick=AccionesIngresoVehic() id="contact-submit" data-submit="...Cargando">Aceptar</button>
+      <button name="submit" type="Aceptar1" value="validar"  onclick=AccionesIngresoVehic() >Aceptar</button>
      
         </ul>
       </div>
@@ -60,7 +60,7 @@
    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
    
-    <script src="js/funciones.js"></script>
-    <script src="js/index.js"></script>
+    <script src="../js/funciones.js"></script>
+    <script src="../js/index.js"></script>
 </body>
 </html>

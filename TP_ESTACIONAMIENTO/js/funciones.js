@@ -102,14 +102,46 @@ function AccionesIngreso ()
 }
 
 //<----------------------------------------VEHICULO------------------------>
-// function VehiculoExiste()
-// {
-// 	var patente = $("#patente1").val();
-// 	vat paginaExiste = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/loginbd/";
+function VehiculoExiste()
+{
+	var patente = $("#patenteid").val();
+    var paginaExiste = "http://localhost:8080/Programacion3-2017/TP_ESTACIONAMIENTO/index.php/traerunVehiculo/";
+	var paginaVehic = paginaExiste.concat(patente);
 
-// }
+	alert("estoy dentro de vehiculo ");
+	alert (paginaVehic);
+	
+	$.ajax({
+        type: 'GET',
+        url: paginaVehic,
+        dataType: "text",
+        data: {
+			patente : patente
+		},
 
+		success:
+		function(data, textStatus, jqXHR)
+		{
+			alert (data);
+			alert("estoy en success");
+		},
+		error:
+		function (data)
+		{
 
+		}
+
+	});
+
+	alert ("estoy al final del get");
+}
+
+function AccionesIngresoVehic()
+{
+	VehiculoExiste();
+	// VehiculoEstacionado();
+	// IngresoVehiculo();
+}
 
 // function IngresoVehiculo()}
 // {
@@ -139,9 +171,3 @@ function AccionesIngreso ()
 // 	});
 // }
 
-// public function AccionesIngresoVehic()
-// {
-// 	VehiculoExiste();
-// 	VehiculoEstacionado();
-// 	IngresoVehiculo();
-// }

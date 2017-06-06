@@ -35,7 +35,7 @@ $app->get('/tipoempleado', function ($request, $response) {
 $app->get('/tipoempleado/[{id}]', function ($request, $response, $args) {
          
           $nombre = $args["id"];
-          $rta = Usuario::ValidarTipoEmp($obj->usuarionombre);
+          $rta = Usuario::ValidarTipoEmp($nombre);
           return $response->withJson($rta);
         });
 
@@ -52,10 +52,22 @@ $app->get('/traertodosVehiculos', function ($request, $response) {
 });
   
 $app->get('/traerunVehiculo/[{id}]', function ($request, $response, $args) {
+          
           $uno = Vehiculo::TraerUnVehiculo($args['id']);
           return $response->withJson($uno);
         });
 
+// $app->get('/traerunVehiculo', function ($request, $response) {
+          
+
+//         $obj1 = $_GET['patente'];
+//         //  $obj = isset($_GET['autoExiste.patente']) ? json_decode(json_encode($_GET['autoExiste.patente'])) : NULL; 
+//         //  $uno = Vehiculo::TraerUnVehiculo($obj->patente);
+//         //  var_dump($obj);
+//          var_dump($obj1);
+//         //  return $response->withJson($uno);
+//         return ($obj1);
+//         });
 
 $app->run();
 

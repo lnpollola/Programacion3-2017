@@ -93,7 +93,6 @@ class Vehiculo
 
 	public static function TraerTodosLosVehiculos()
 	{
-		echo "estoy aca";
 		$arrayRetorno = array();
 		//Este Metodo esta creado por nosotros este.
 		$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
@@ -116,12 +115,14 @@ class Vehiculo
         $uno = $consulta->fetchAll();
          if($uno == NULL)
           {
+			$uno="no existe";
+              return $uno;
             //   $uno="no existe";
             //   return $uno;
-			return false;
+			// return false;
           }
-        // return $uno;
-		return true;
+		// return true;
+		return $uno;
     }
 
 	public static function IngresoVehiculo ($patente,$color,$marca)
