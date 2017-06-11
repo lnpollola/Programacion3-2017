@@ -264,7 +264,7 @@ function AccionesIngresoVehic ($nombre)
 	alert($mensaje);
 	
 	//INSERTAR EN LA BASE
-	if(InsertarAutoBD(nro_cochera,hora,patente,nombre))
+	if(InsertarAutoBD(nro_ccochera,hora,patente,nombre))
 	{
 		alert("El vehiculo fue ingresado al  sistema");
 	}
