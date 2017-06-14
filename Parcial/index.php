@@ -55,6 +55,12 @@ $app->get('/traerunabici/[{id}]', function ($request, $response, $args) {
           return $response->withJson($uno);
         });
 
+$app->get('/traerbicicolor/[{color}]', function ($request, $response, $args) {
+          
+          $uno = Bicicleta::traerbicicolor($args['color']);
+          return $response->withJson($uno);
+        });
+
 $app->delete('/borrarbici/[{id}]', function ($request, $response, $args) {
           
           $uno = Bicicleta::borrarbici($args['id']);
